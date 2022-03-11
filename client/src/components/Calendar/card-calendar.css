@@ -1,0 +1,80 @@
+div.container-card{
+  background-color: #ebe6e6;
+  padding: 30px;
+  max-width: 390px;
+  min-width: 320px;
+  min-height: 450px;
+  max-height: 550px;
+  border-radius: 15px;
+  box-shadow:0px 15px #92C149;
+  margin-left: 31%;
+  margin-top: 5%;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
+
+.calendar h3{
+  color:#92C149;
+}
+
+.calendar h4{
+  color:#92C149;
+}
+
+
+
+.dates-calendar{
+  flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+}
+
+.date-begin{
+  margin-right: 3vw;
+  width: 40%;
+ 
+}
+
+.date-begin h4{
+  color: #92C149;
+}
+
+.date-end{
+  width: 40%;
+  
+}
+
+.date-end h4{
+  color: #92C149;
+}
+
+.container-select-D{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-selct-date{
+  /* background-color: yellow;
+  border-radius: 5px;
+  border:none;
+  padding: 0.5vw; */
+  margin-right: 10px;
+}
+
+.selectDates{
+  margin-bottom: 10px;
+}
+
+.select-date{
+ 
+  
+  margin-bottom: 2vw ;
+  background-color: #FEFEFE;
+  border-radius: 5px;
+  padding-right: 8vw;
+  padding-left: 8vw;
+}

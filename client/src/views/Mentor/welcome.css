@@ -1,0 +1,48 @@
+
+  
+  div.Welcome{
+    
+    margin-top: 8%;
+    margin-left: 40%;
+    background-color: #FEFEFE;
+    padding-top: 1%;
+    max-width: 380px;
+    min-width: 380px;
+    min-height: 320px;
+    max-height: 320px;
+    border-radius: 15px;
+    box-shadow:0px 15px #92C149,
+    0px 5px black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  div.Welcome h2{
+    color: #92C149;
+    margin-left: -80px;
+  }
+  
+    
+    
+      ul li {
+        margin-left:-10px ;
+        margin-right: 30px;
+        padding: 10px;
+        list-style: #C4C4C4;
+        ;
+      }
+  
+  .btn-welcom-mentor{
+    font-size: 17px;
+    background-color:#FFCC02;
+    border: transparent;
+    border-radius: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 40px;
+    padding-left: 40px;
+    text-decoration: none;
+    color: #000;
+  }

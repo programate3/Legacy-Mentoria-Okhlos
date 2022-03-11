@@ -1,0 +1,42 @@
+{
+  "name": "mentoring-app",
+  "version": "1.0.0",
+  "description": "An app to manage the Mentoring process",
+  "main": "index.js",
+  "workspaces": [
+    "api",
+    "client"
+  ],
+  "engines": {
+    "npm":"7.23.0"
+  },
+  "scripts": {
+    "build": "SKIP_PREFLIGHT_CHECK=true npm run build --workspace=client",
+    "lint": "eslint ./api ./client",
+    "start": "npm run start --workspace=api",
+    "dev:api": "npm run build && npm run dev --workspace=api"
+  },
+  "eslintConfig": {
+    "ignorePatterns": "build",
+    "extends":[
+      "react-app",
+      "react-app/jest",
+      "./node_modules/standard/eslintrc.json"
+    ],
+    "env": {
+      "cypress/globals": true,
+      "jest": true
+    },
+    "plugins": [
+      "cypress"
+    ]
+  },
+  "devDependencies": {
+    "eslint-plugin-cypress": "2.11.2",
+    "standard": "^16.0.4"
+  },
+  "keywords": [],
+  "author": "The Best Team",
+  "license": "ISC"
+  
+}
