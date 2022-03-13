@@ -1,3 +1,8 @@
+/** Notas
+ * Componentes ListMentorstudent.jsx no se esta utilizando aquí
+ * 
+ */
+
 import { useState } from 'react'
 import Styles from './matchform.css'
 import Card from '../../../components/Card/Card'
@@ -10,16 +15,22 @@ const MatchForm = () => {
   let program = ""
   const [students, setStudents] = useState([])
   const [mentors, setMentors] = useState([])
+  // permite controlar que componente se va a renderizar: <ListStudentMentor/> ó <ProgramAndCohort/>
   const [chosenProgram, setChosenProgram] = useState(false)
+  // almacena true si el match se realizo con éxito
   const [done, setDone] = useState(false)
+  // almacena los datos de estudiantes y mentores una vez realizado el match
+  const [match, setMatch] = useState([])
 
   const baseUrl = 'https://fathomless-bastion-33135.herokuapp.com'
 
+  // almacena el valor escogido en la seccion de cohorte (corregir)
   const handleTypeSelect = e => {
     cohort = e.label
     console.log(cohort)
   };
 
+  // almacena el valor escogido en la seccion de programa (corregir)
   const handleSelectPrograms = i => {
     program = i.label
     console.log(program)
@@ -69,6 +80,7 @@ const MatchForm = () => {
     getValuesMentor()
   }
 
+  // En esta funcion se consultan los mentores
   const getValuesMentor = async () => {
     try {
       const resp = await axios.get(`${baseUrl}/api/match/mentor/${program}/${cohort}`)
@@ -82,9 +94,7 @@ const MatchForm = () => {
     }
   }
 
-  const [match, setMatch] = useState([])
-  
-
+  // logica del match linea 97 a 210
   let resultInterest = 0
   let resultAge = 0
   let competencies = 0
@@ -162,6 +172,7 @@ const MatchForm = () => {
     return count
   }
 
+  //Funcion que hace el match
   const Match = () => {
     for (let est = 0; est < students.length; est++) {
       for (let m = count; m < mentors.length; m++) {
@@ -181,7 +192,9 @@ const MatchForm = () => {
         total = resultInterest + resultAge + competencies + gender
         console.log("Total" + total)
         console.log(students[est].user_id.name + "-" + mentors[m].user_id.name)
-        if (total > 50) {
+        if (total > 40) {
+          
+          // Se están almacenando mal los datos en la variable de estado Match
           match.push({
             nameEstudent: students[est].user_id.name,
             nameMentor: mentors[m].user_id.name
@@ -200,6 +213,7 @@ const MatchForm = () => {
     
   console.log(students)
 
+  // componente que muestra la lista de estudiantes y mentores y el botón para hacer match
   const ListStudentMentor = () => {
     return(
       <div>
@@ -260,9 +274,9 @@ const MatchForm = () => {
             {match.map((e, index) => {
               return ( 
                 <tr className="listStudent-tr-map" key={e.id}>
-                    <td className="td-number">{index + 1}</td>
-                    <td className="td-data">{e.nameEstudent}</td>
-                    <td className="td-data">{e.nameMentor}</td>
+                  <td className="td-number">{index + 1}</td>
+                  <td className="td-data">{e.nameEstudent}</td>
+                  <td className="td-data">{e.nameMentor}</td>
                 </tr> 
               )
             })}
@@ -274,6 +288,8 @@ const MatchForm = () => {
     </div>
     )
   }
+
+  // Componente que renderiza el formulario de programa y cohorte
   const ProgramAndCohort = () => {
 
     return (
