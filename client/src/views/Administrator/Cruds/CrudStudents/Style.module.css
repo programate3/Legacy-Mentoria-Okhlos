@@ -4,6 +4,7 @@
     
     ;
 }
+
 @font-face {
     font-family:Gilroy-Light ;
     src: url(../../../../assets/Fontfamily/Gilroy-Light.otf);
@@ -12,28 +13,41 @@
 .container{
     font-family:Gilroy-Light; 
 }
+
+table{
+    border: 1px solid #000000;
+}
+
+
 .row td{
+    display: flex;
     width: 100vw;
     height: 7vh;
    
 }
-.column th{
+
+tr{
+    border-bottom: 1px solid #000000;
+}
+
+.th{
     width: 100vw;
     height: 8vh;
     background-color:#FFCC02;
     color: #010101;
-    
-
+    align-items: flex-end;
+   
 }
+
 td button{
     width: 50vw;
     background-color: #FFCC02;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    max-width:200px;
-    
-    
+    max-width:200px;  
+    border-right: 1px solid #000000;
 }
+
 
 .update{
     background-color:transparent;
@@ -53,7 +67,9 @@ td button{
    display: inline-block;
    margin: auto;
 
+
 }
+
 
 @media (min-width: 480px ) {
     td button{

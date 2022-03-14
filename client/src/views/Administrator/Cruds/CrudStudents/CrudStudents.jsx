@@ -27,14 +27,17 @@ const Articles=[{
 const useStyles = makeStyles((theme) => ({
   modal: {
     position: 'absolute',
-    width: 400,
+    maxWidth: 600,
+    width: '100%',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    
+   
   },
   iconos: {
     cursor: 'pointer',
@@ -46,15 +49,15 @@ const useStyles = makeStyles((theme) => ({
   },
   h3: {
     fontFamily: "Gilroy-ExtraBold ",
-    color: "#92C149",
+    color: "#4caf50",
      margin: "0"
   },
   Button: {
-    backgroundColor: "#FFCC02",
+    backgroundColor: "#ffdf5f",
     color: "#010101",
     margin: "0rem 0.5rem 0rem 0rem",
     "&:hover": {
-      backgroundColor: "red"
+      backgroundColor: "#FFCC02"
     }
 
   },
@@ -163,28 +166,56 @@ const CrudStudents = () => {
     <div className={Styles.modal}>
       <h3 className={Styles.h3} >AGREGAR NUEVO ESTUDIANTE   </h3>
       
-      
-      
+      <div className="row ">
+      <div className="form-group col-md-6">
       <TextField name="name" className={Styles.inputMaterial} label="Nombres" onChange={InsertData}  />
       <br />
+      </div>
+      <div className="form-group col-md-6">
       <TextField name="middleName" className={Styles.inputMaterial} label="Segundo Nombre" onChange={InsertData}  />
       <br />
+      </div>
+      </div>
+      <div className="row ">
+      <div className="form-group col-md-6">
       <TextField name="lastName" className={Styles.inputMaterial} label="Apellidos" onChange={InsertData} />
       <br />
+      </div>
+      <div className="form-group col-md-6">
       <TextField name="secondSurname" className={Styles.inputMaterial} label="Segundo apellidos" onChange={InsertData} />
       <br />
+      </div>
+      </div>
+      <div className="row ">
+      <div className="form-group col-md-6">
       <TextField name="actualAge" className={Styles.inputMaterial} label="Edad" onChange={InsertData} />
       <br />
+      </div>
+      <div className="form-group col-md-6">
       <TextField name="gender" className={Styles.inputMaterial} label="Género" onChange={InsertData}  />
       <br />
+      </div>
+      </div>
+      <div className="row ">
+      <div className="form-group col-md-6">
       <TextField name="program" className={Styles.inputMaterial} label="Programa" onChange={InsertData}  />
       <br />
+      </div>
+      <div className="form-group col-md-6">
       <TextField name="email" className={Styles.inputMaterial} label="Email" onChange={InsertData} />
       <br />
+      </div>
+      </div>
+      <div className="row ">
+      <div className="form-group col-md-6">
       <TextField name="contactNumber" className={Styles.inputMaterial} label="Celular" onChange={InsertData} />
       <br />
+      </div>
+      <div className="form-group col-md-6">
       <TextField name="cohorte" className={Styles.inputMaterial} label="cohorte" onChange={InsertData} />
       <br />
+      </div>
+      </div>
       <TextField name="password" className={Styles.inputMaterial} label="Contraseña" onChange={InsertData} />
     
 
