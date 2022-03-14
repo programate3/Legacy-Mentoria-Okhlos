@@ -20,8 +20,8 @@
 .column th{
     width: 100vw;
     height: 8vh;
-    background-color:#3002ff;
-    color: #c40707;
+    background-color:#FFCC02;
+    color: #000000;
     
 
 }
@@ -31,6 +31,7 @@ td button{
     padding: 0.5rem;
     border-radius: 0.5rem;
     max-width:200px;
+    
     
     
 }

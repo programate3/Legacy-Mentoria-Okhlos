@@ -11,7 +11,7 @@ table tr:nth-child(even){
 
 table{
 
- text-align:center;
+ text-align:flex start;
   border-collapse: collapse;
 
 }

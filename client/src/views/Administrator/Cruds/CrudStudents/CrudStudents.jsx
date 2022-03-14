@@ -27,34 +27,41 @@ const Articles=[{
 const useStyles = makeStyles((theme) => ({
   modal: {
     position: 'absolute',
-    width: 400,
+    width: 700,
+    height: 500,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
   },
+TextField:{
+ display: 'inline-block'
+},
+
   iconos: {
     cursor: 'pointer',
     backgroundcolor: 'blue',
   },
   inputMaterial: {
-    width: '100%',
-    height: "2.5rem"
+    width: '20vw',
+    height: "2.5rem",
+    
   },
   h3: {
     fontFamily: "Gilroy-ExtraBold ",
-    color: "#92C149",
+    color: "green",
      margin: "0"
+
   },
   Button: {
     backgroundColor: "#FFCC02",
     color: "#010101",
     margin: "0rem 0.5rem 0rem 0rem",
     "&:hover": {
-      backgroundColor: "red"
+      backgroundColor: "#4caf50"
     }
 
   },
@@ -163,12 +170,12 @@ const CrudStudents = () => {
     <div className={Styles.modal}>
       <h3 className={Styles.h3} >AGREGAR NUEVO ESTUDIANTE   </h3>
       
-      
-      
+      <div className='in'>
       <TextField name="name" className={Styles.inputMaterial} label="Nombres" onChange={InsertData}  />
       <br />
       <TextField name="middleName" className={Styles.inputMaterial} label="Segundo Nombre" onChange={InsertData}  />
       <br />
+      
       <TextField name="lastName" className={Styles.inputMaterial} label="Apellidos" onChange={InsertData} />
       <br />
       <TextField name="secondSurname" className={Styles.inputMaterial} label="Segundo apellidos" onChange={InsertData} />
@@ -187,6 +194,8 @@ const CrudStudents = () => {
       <br />
       <TextField name="password" className={Styles.inputMaterial} label="Contraseña" onChange={InsertData} />
     
+      </div>
+      
 
       <br /><br />
       <div align="right">
