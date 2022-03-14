@@ -8,6 +8,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import { Modal, Button,TextField} from '@material-ui/core';
 import Axios from 'axios';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
+import { blue } from '@material-ui/core/colors';
 
 const Articles=[{
    
@@ -36,7 +37,8 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translate(-50%, -50%)'
   },
   iconos: {
-    cursor: 'pointer'
+    cursor: 'pointer',
+    backgroundcolor: 'blue',
   },
   inputMaterial: {
     width: '100%',
@@ -52,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#010101",
     margin: "0rem 0.5rem 0rem 0rem",
     "&:hover": {
-      backgroundColor: "#92C149"
+      backgroundColor: "red"
     }
 
   },

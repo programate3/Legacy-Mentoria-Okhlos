@@ -11,7 +11,7 @@ const PanelAdmin = () => {
     return (
         <div>
           <Navbar/>
-          <CounterCard/>>
+          <CounterCard/>
           <Sidebar/>
           <Footer/>
         </div>
