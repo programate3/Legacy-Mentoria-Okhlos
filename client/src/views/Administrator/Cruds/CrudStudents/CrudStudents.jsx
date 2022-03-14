@@ -39,18 +39,24 @@ const useStyles = makeStyles((theme) => ({
     
    
   },
+TextField:{
+ display: 'inline-block'
+},
+
   iconos: {
     cursor: 'pointer',
     backgroundcolor: 'blue',
   },
   inputMaterial: {
-    width: '100%',
-    height: "2.5rem"
+    width: '20vw',
+    height: "2.5rem",
+    
   },
   h3: {
     fontFamily: "Gilroy-ExtraBold ",
     color: "#4caf50",
      margin: "0"
+
   },
   Button: {
     backgroundColor: "#ffdf5f",
@@ -216,8 +222,11 @@ const CrudStudents = () => {
       <br />
       </div>
       </div>
+      
       <TextField name="password" className={Styles.inputMaterial} label="Contraseña" onChange={InsertData} />
     
+      
+     
 
       <br /><br />
       <div align="right">
