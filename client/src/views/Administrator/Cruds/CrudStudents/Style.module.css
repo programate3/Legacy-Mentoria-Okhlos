@@ -34,6 +34,19 @@ td button{
     
     
 }
+
+.update{
+    background-color:transparent;
+    border:none;
+    color:#4caf50;
+    
+}
+
+.delete{
+    background-color:transparent;
+    border:none;
+    color:red;
+}
 .column th,.row td{ 
     height:auto;
    font-size: 5vw;
