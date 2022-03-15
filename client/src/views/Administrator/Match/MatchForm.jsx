@@ -1,7 +1,3 @@
-/** Notas
- * Componentes ListMentorstudent.jsx no se esta utilizando aquí
- * 
- */
 
 import { useState } from 'react'
 import Styles from './matchform.css'
@@ -9,6 +5,8 @@ import Card from '../../../components/Card/Card'
 import Select from 'react-select'
 import axios from 'axios'
 import Sidebar from '../../../components/Sidebar/Sidebar'
+
+import ListStudentMentor from './components/ListStudentMentor/ListStudentMentor';
 
 const MatchForm = () => {
   let cohort = 0
@@ -27,13 +25,11 @@ const MatchForm = () => {
   // almacena el valor escogido en la seccion de cohorte (corregir)
   const handleTypeSelect = e => {
     cohort = e.label
-    console.log(cohort)
   };
 
   // almacena el valor escogido en la seccion de programa (corregir)
   const handleSelectPrograms = i => {
     program = i.label
-    console.log(program)
   };
 
   const cohorte = [
@@ -69,8 +65,6 @@ const MatchForm = () => {
   const getValuesFinal = async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/match/students/${program}/${cohort}`)
-      // console.log(res)
-      console.log(cohort)
       if (res.status === 200) {
         setStudents(res.data)
       }
@@ -84,7 +78,6 @@ const MatchForm = () => {
   const getValuesMentor = async () => {
     try {
       const resp = await axios.get(`${baseUrl}/api/match/mentor/${program}/${cohort}`)
-      // console.log(resp)
       if (resp.status === 200) {
         setChosenProgram(true)
         setMentors(resp.data)
@@ -108,7 +101,6 @@ const MatchForm = () => {
     for (let i = 0; i < 3; i++) {
       // const result = students[est].interestsStudent[i].includes(mentors[m].interestsMentor)
       const result = mentors[m].interestsMentor.includes(students[est].interestsStudent[i])
-      console.log("Result: " + result)
       if (result === true) {
         if (count === 0) {
           count = 5
@@ -117,7 +109,7 @@ const MatchForm = () => {
         }
       }
       // debugger
-    } console.log(count)
+    }
 
     return count
   }
@@ -183,7 +175,7 @@ const MatchForm = () => {
   }
 
   //Funcion que hace el match
-  const Match = () => {
+  const calculateMatch = () => {
     for (let est = 0; est < students.length; est++) {
       let possibleMentors = [];
       for (let m = count; m < mentors.length; m++) {
@@ -205,85 +197,6 @@ const MatchForm = () => {
       }]);
     }
     setDone(true)
-  }
-    
-    
-  console.log(students)
-
-  // componente que muestra la lista de estudiantes y mentores y el botón para hacer match
-  const ListStudentMentor = () => {
-    return(
-      <div>
-      <Sidebar/>
-          <div className="listStudent-Container">
-            <h2 className="listStudent-title">Lista de Estudiantes</h2>
-            <table>
-              <tr className="listStudent-tr">
-                <th className="listStudent-th"> </th>
-                <th className="listStudent-th">Nombre</th>
-                <th className="listStudent-th">Apellido</th>
-                
-              </tr>
-              
-            {students.map((e, index) => {
-              return ( 
-                <tr className="listStudent-tr-map" key={e.id}>
-                    <td className="td-number">{index + 1}</td>
-                    <td className="td-data">{e.user_id.name}</td>
-                    <td className="td-data">{e.user_id.lastName}</td>
-                </tr> 
-              )
-            })}
-            </table>  
-          </div>
-          <div className="listStudent-Container">
-            <h2 className="listStudent-title mg-top">Lista de Mentores</h2>
-            <table>
-              <tr className="listStudent-tr">
-                <th className="listStudent-th"> </th>
-                <th className="listStudent-th">Nombre</th>
-                <th className="listStudent-th">Apellido</th>
-                
-              </tr>
-              
-            {mentors.map((e, index) => {
-              return ( 
-                <tr className="listStudent-tr-map" key={e.id}>
-                    <td className="td-number">{index + 1}</td>
-                    <td className="td-data">{e.user_id.name}</td>
-                    <td className="td-data">{e.user_id.lastName}</td>
-                </tr> 
-              )
-            })}
-            </table> 
-          </div>
-          {done && 
-          <div className="listStudent-Container margin-bottom">
-            <h2 className="listStudent-title mg-top">Match Estudiante Mentor</h2>
-            <table>
-              <tr className="listStudent-tr">
-                <th className="listStudent-th"> </th>
-                <th className="listStudent-th">Estudiante</th>
-                <th className="listStudent-th">Mentor</th>
-                
-              </tr>
-              
-            {match.map((e, index) => {
-              return ( 
-                <tr className="listStudent-tr-map" key={e.id}>
-                  <td className="td-number">{index + 1}</td>
-                  <td className="td-data">{e.nameEstudent}</td>
-                  <td className="td-data">{e.nameMentor}</td>
-                </tr> 
-              )
-            })}
-            </table> 
-          </div>
-          }
-          <button style={{display: done ? 'none' : 'block'}} onClick={Match}>Hacer Match</button>
-          
-    </div>
-    )
   }
 
   // Componente que renderiza el formulario de programa y cohorte
@@ -323,7 +236,15 @@ const MatchForm = () => {
     )
   }
 
-  return <>{chosenProgram ? <ListStudentMentor /> : <ProgramAndCohort />}</>
+  return <>{chosenProgram ? 
+    <ListStudentMentor 
+      students={students}
+      mentors={mentors}
+      done={done}
+      match={match}
+      calculateMatch={calculateMatch}
+    /> : 
+    <ProgramAndCohort />}</>
 }
 
 export default MatchForm
