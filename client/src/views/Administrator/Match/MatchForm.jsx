@@ -172,41 +172,38 @@ const MatchForm = () => {
     return count
   }
 
+  function findHighScore(possibleMentors){
+    let mayor = possibleMentors[0];
+    for(let i=1 ; i<possibleMentors.length ; i++){
+      if(mayor.score < possibleMentors[i].score){
+        mayor =  possibleMentors[i];
+      }
+    }
+    return mayor.mentor.user_id.name;
+  }
+
   //Funcion que hace el match
   const Match = () => {
     for (let est = 0; est < students.length; est++) {
+      let possibleMentors = [];
       for (let m = count; m < mentors.length; m++) {
-        // Interests the student and mentor
         resultInterest = Interests(est, m)
-        console.log(resultInterest)
-        // Actual age the student and mentor
         resultAge = Age(est, m)
-        console.log(resultAge)
-        // Competencies the student and mentor
         competencies = Competencies(est, m)
-        console.log(competencies)
-        // Gender preference 
         gender = Gender(est, m)
-        console.log(gender)
-        // Total
+
         total = resultInterest + resultAge + competencies + gender
-        console.log("Total" + total)
-        console.log(students[est].user_id.name + "-" + mentors[m].user_id.name)
-        if (total > 40) {
-          
-          // Se están almacenando mal los datos en la variable de estado Match
-          match.push({
-            nameEstudent: students[est].user_id.name,
-            nameMentor: mentors[m].user_id.name
-          })
-          count += 1
-          break
-        }
-        // debugger
+
+        possibleMentors.push({
+          score: total, 
+          mentor: mentors[m]
+        });
       }
+      setMatch(prev => [...prev, {
+        nameEstudent: students[est].user_id.name,
+        nameMentor: findHighScore(possibleMentors)
+      }]);
     }
-    console.log("El listado del Match")
-    console.log(match)
     setDone(true)
   }
     
