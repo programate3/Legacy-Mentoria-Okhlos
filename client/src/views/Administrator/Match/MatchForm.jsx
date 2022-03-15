@@ -1,16 +1,12 @@
 
 import { useState } from 'react'
-import Styles from './matchform.css'
-import Card from '../../../components/Card/Card'
-import Select from 'react-select'
 import axios from 'axios'
-import Sidebar from '../../../components/Sidebar/Sidebar'
 
 import ListStudentMentor from './components/ListStudentMentor/ListStudentMentor';
+import Cohort from './components/Cohort/Cohort';
 
 const MatchForm = () => {
-  let cohort = 0
-  let program = ""
+  let program = "Programate";
   const [students, setStudents] = useState([])
   const [mentors, setMentors] = useState([])
   // permite controlar que componente se va a renderizar: <ListStudentMentor/> ó <ProgramAndCohort/>
@@ -19,48 +15,14 @@ const MatchForm = () => {
   const [done, setDone] = useState(false)
   // almacena los datos de estudiantes y mentores una vez realizado el match
   const [match, setMatch] = useState([])
+  const [cohort, setCohort] = useState(0);
 
   const baseUrl = 'https://fathomless-bastion-33135.herokuapp.com'
 
   // almacena el valor escogido en la seccion de cohorte (corregir)
   const handleTypeSelect = e => {
-    cohort = e.label
+    setCohort(e.label) 
   };
-
-  // almacena el valor escogido en la seccion de programa (corregir)
-  const handleSelectPrograms = i => {
-    program = i.label
-  };
-
-  const cohorte = [
-    {
-      value: 1,
-      label: 1
-    },
-    {
-      value: 2,
-      label: 2
-    },
-    {
-      value: 3,
-      label: 3
-    },
-    {
-      value: 4,
-      label: 4
-    }
-  ]
-
-  const programs = [
-    {
-      value: 'Programate',
-      label: 'Programate'
-    },
-    {
-      value: 'Administración de Empresas',
-      label: 'Administración de Empresas'
-    }
-  ]
 
   const getValuesFinal = async () => {
     try {
@@ -87,7 +49,7 @@ const MatchForm = () => {
     }
   }
 
-  // logica del match linea 97 a 210
+  // logica del match linea 52 a 162
   let resultInterest = 0
   let resultAge = 0
   let competencies = 0
@@ -199,52 +161,22 @@ const MatchForm = () => {
     setDone(true)
   }
 
-  // Componente que renderiza el formulario de programa y cohorte
-  const ProgramAndCohort = () => {
-
-    return (
-      <div className={Styles.contenedor}>
-        <Sidebar/>
-        <div className={Styles.heder}></div>
-
-        <Card
-          container={
-            <>
-              <h3>Elige la cohorte y el programa para realizar el Match</h3>
-              <p>Elige la cohorte</p>
-
-              <Select
-                name='cohorte'
-                options={cohorte} // Options to display in the dropdown
-                onChange={handleTypeSelect}
-              />
-
-              <p>Elige el programa.</p>
-
-              <Select
-                name='programs'
-                options={programs} // Options to display in the dropdown
-                onChange={handleSelectPrograms}
-              />
-
-              <br />
-            </>
-          }
-          bottom={<button onClick={getValuesFinal}>Aceptar</button>}
-        />
-      </div>
-    )
-  }
-
-  return <>{chosenProgram ? 
-    <ListStudentMentor 
-      students={students}
-      mentors={mentors}
-      done={done}
-      match={match}
-      calculateMatch={calculateMatch}
-    /> : 
-    <ProgramAndCohort />}</>
+  return (
+    <>
+      {chosenProgram ? 
+      <ListStudentMentor 
+        students={students}
+        mentors={mentors}
+        done={done}
+        match={match}
+        calculateMatch={calculateMatch}
+      /> : 
+      <Cohort
+        handleTypeSelect={handleTypeSelect}
+        getValuesFinal={getValuesFinal}
+      />}
+    </>
+  )
 }
 
 export default MatchForm
