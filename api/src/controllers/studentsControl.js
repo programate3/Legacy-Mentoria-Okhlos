@@ -6,6 +6,8 @@ const getAssiMentorRouter = require('express').Router()
 
 const postUserRouter = require('express').Router()
 
+const deleteUserRouter = require('express').Router()
+
 const updatedUserRouter = require('express').Router()
 
 const updatedProfileRouter = require('express').Router()
@@ -165,6 +167,13 @@ updatedUserRouter.post('/', (req, res) => {
     }
   })
 })
+
+deleteUserRouter.delete("/:id", (req, res) => {
+  User.findOneAndRemove({ _id: req.params.id }, (err, result) => {
+      if(err) throw new Error(err);
+      res.end();
+  });
+});
 
 updatedProfileRouter.post('/:id', async (req, res) => {
   const profile = {

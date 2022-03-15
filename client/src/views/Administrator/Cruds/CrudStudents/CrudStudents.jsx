@@ -145,6 +145,11 @@ const CrudStudents = () => {
       
   }
 
+  const removeTodo = async (id) => {
+    await Axios.delete(`${baseUrl}/${id}`);
+   
+};
+
 
 
 
@@ -234,7 +239,7 @@ const CrudStudents = () => {
               <td>{e.user_id.program }</td>
               <td>{e.assignedMentor}</td>
               <td><button className={styles.update}><FontAwesomeIcon icon={faEdit} /></button></td>
-              <td><button className={styles.delete}><FontAwesomeIcon icon={faTrashAlt} /></button></td><br />
+              <td><button className={styles.delete} onClick={removeTodo}><FontAwesomeIcon icon={faTrashAlt} /></button></td><br />
               
              
             </tr>
