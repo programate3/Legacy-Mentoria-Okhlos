@@ -20,7 +20,6 @@ import MultipleChoice from './views/Student/MultipleChoice/MultipleChoice';
 
 import PrincipalView from './views/Principal/PrincipalView';
 import MatchForm from './views/Administrator/Match/MatchForm';
-import ListMentorstudent from './views/Administrator/Match/ListMentorstudent';
 import AsignedSessions from './views/Mentor/AsignedSessions/AsignedSessions';
 import FormMentor from './views/Mentor/FormMentor';
 import FinalMessage from './views/Mentor/AsignedSessions/FinalMessage.jsx';
@@ -138,7 +137,6 @@ function App() {
          <Route path="/MultipleChoice" element={<MultipleChoice/>}/>
          
          <Route path="/MatchForm" element={<MatchForm/>}/>
-         <Route path="/ListMentorstudent" element={<ListMentorstudent/>}/>
          <Route path="/AsignedSessions" element={<AsignedSessions/>}/>
          <Route path="/welcome-mentor" element={<WelcomeMentor/>}/>
          <Route path="/FormMentor" element={<FormMentor/>}/>
