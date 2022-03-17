@@ -32,6 +32,6 @@ menAvailabilitySchema.set('toJSON', {
 })
 
 // compilation of mentor availability model
-const menAvailability = model('menAvailability', menAvailabilitySchema)
+const menAvailability = model('mentoringAvailability', menAvailabilitySchema)
 
 module.exports = menAvailability
