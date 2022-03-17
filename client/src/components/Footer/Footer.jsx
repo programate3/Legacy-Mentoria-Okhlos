@@ -14,13 +14,13 @@ const Footer = () => {
       <section className="footer-social-media">
 
         <a href="https://www.facebook.com/somoseducamas" target="_blank" rel="noopener noreferrer">
-          <img className="logoSocialMedia" src={Facebook} width="40px" height="40px" alt="Facebook" /></a>
+          <img className="logoSocialMedia" src={Facebook} width="30px" height="30px" alt="Facebook" /></a>
         <a href="https://www.instagram.com/programate_escueladecodigo/" target="_blank" rel="noopener noreferrer">
-          <img className="logoSocialMedia" src={Instagram} width="40px" height="40px" alt="Instagram" /></a>
+          <img className="logoSocialMedia" src={Instagram} width="30px" height="30px" alt="Instagram" /></a>
         <a href="https://www.youtube.com/channel/UCmnr_sLPZ1E8H1VgUtaHGPQ" target="_blank" rel="noopener noreferrer">
-          <img className="logoSocialMedia" src={Youtube} width="40px" height="40px" alt="Youtube" /></a>
+          <img className="logoSocialMedia" src={Youtube} width="30px" height="30px" alt="Youtube" /></a>
         <section className="footer-info__name">
-          <img src={programate} width="220px" height="82px" alt="Programate Logo" />
+          <img src={programate} width="200px" height="72px" alt="Programate Logo" />
         </section>
       </section>
       <div className='cont'>
@@ -30,9 +30,9 @@ const Footer = () => {
       </div>
       
       <h5 className="rightsResercedText">
-        Superteam de Quackcoders
-        ©Todos los derechos reservados.
-        Cundicoders
+        ©Todos los derechos reservados.<br />
+        Superteam de Quackcoders.
+        Cundicoders.
       </h5>
 
 
