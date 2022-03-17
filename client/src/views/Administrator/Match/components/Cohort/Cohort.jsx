@@ -29,22 +29,27 @@ export default function Cohort(props) {
 		<div className={style.contenedor}>
 			<Sidebar />
 			<div className={style.heder}></div>
-
-			<Card
-				container={
+			<div className={style.text}>
+				<h4 >Selecciona la cohorte para realizar el Match.</h4>
+			</div>
+			<div className={style.cardSelect}>
+			
+				{
 					<>
-						<h3>Elige la cohorte y el programa para realizar el Match</h3>
-						<p>Elige la cohorte</p>
+						<h5>Selecciona una opción</h5>
+					
 						<Select
 							name="cohorte"
 							options={cohorte}
 							onChange={handleTypeSelect}
 						/>
 						<br />
+						{<button className={style.buttonSelect} onClick={getValuesFinal}>Aceptar</button>}
 					</>
 				}
-				bottom={<button onClick={getValuesFinal}>Aceptar</button>}
-			/>
+				
+		
+			</div>
 		</div>
 	);
 }
