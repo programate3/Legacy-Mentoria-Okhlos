@@ -13,7 +13,7 @@ export default function ListStudentMentor(props) {
 				<h2 className="listStudent-title">Lista de Estudiantes</h2>
 				<table>
 					<tr className="listStudent-tr">
-						<th className="listStudent-th"> </th>
+						<th className="listStudent-th">id </th>
 						<th className="listStudent-th">Nombre</th>
 						<th className="listStudent-th">Apellido</th>
 					</tr>
