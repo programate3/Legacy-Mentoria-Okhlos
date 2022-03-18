@@ -2,6 +2,7 @@ import style from './Cohort.module.css';
 import Sidebar from '../../../../../components/Sidebar/Sidebar';
 import Card from '../../../../../components/Card/Card';
 import Select from 'react-select';
+import NavAdmin from '../../../NavAdmin/NavAdmin';
 
 export default function Cohort(props) {
   const { handleTypeSelect, getValuesFinal } = props;
@@ -27,7 +28,8 @@ export default function Cohort(props) {
 
 	return (
 		<div className={style.contenedor}>
-			<Sidebar />
+			{/* <Sidebar /> */}
+			{/* <NavAdmin /> */}
 			<div className={style.heder}></div>
 
 			<Card
