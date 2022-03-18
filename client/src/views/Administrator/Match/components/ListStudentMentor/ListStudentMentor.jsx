@@ -17,7 +17,7 @@ export default function ListStudentMentor(props) {
         </button>
         </div>
         <h2>Lista de Estudiantes</h2>
-        <div class="table-responsive">
+        <div class={style.containerTable}>
           <table className={style.table}>
             <thead>
               <tr>
@@ -54,7 +54,7 @@ export default function ListStudentMentor(props) {
       </div>
       <div>
         <h2>Lista de Mentores</h2>
-        <div class="table-responsive">
+        <div class={style.containerTable}>
           <table className={style.table}>
           <thead>
             <tr>
@@ -73,10 +73,11 @@ export default function ListStudentMentor(props) {
                 <tr key={e.id}>
                   <td>{index + 1}</td>
                   <td>{e.user_id.name}</td>
-                    <td>{e.user_id.middleName}</td>
-                    <td>{e.user_id.lastName}</td>
-                    <td>{e.user_id.secondSurname}</td>
-                    <td>{e.user_id.contactNumber}</td>
+                  <td>{e.user_id.middleName}</td>
+                  <td>{e.user_id.lastName}</td>
+                  <td>{e.user_id.secondSurname}</td>
+                  <td>{e.user_id.actualAge}</td>
+                  <td>{e.user_id.contactNumber}</td>
                     <td>{e.user_id.email}</td>
                 </tr>
               );
@@ -88,7 +89,7 @@ export default function ListStudentMentor(props) {
       {done && (
         <div>
           <h2>Match Estudiante Mentor</h2>
-          <div class="table-responsive">
+          <div class={style.containerTable}>
           <table className={style.table}>
           <thead>
               <tr>
