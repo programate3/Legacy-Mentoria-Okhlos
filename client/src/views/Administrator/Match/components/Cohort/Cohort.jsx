@@ -1,6 +1,5 @@
 import style from './Cohort.module.css';
-import Sidebar from '../../../../../components/Sidebar/Sidebar';
-import Card from '../../../../../components/Card/Card';
+
 import Select from 'react-select';
 
 export default function Cohort(props) {
@@ -27,8 +26,8 @@ export default function Cohort(props) {
 
 	return (
 		<div className={style.contenedor}>
-			<Sidebar />
-			<div className={style.heder}></div>
+		
+		
 			<div className={style.text}>
 				<h4 >Selecciona la cohorte para realizar el Match.</h4>
 			</div>

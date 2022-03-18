@@ -5,16 +5,21 @@
     background-color: #FFCC02;
     min-height: 70px;
     font-size:18px;
-  
+    padding-top: 100px;
+    width: 100%;
+    box-shadow: 3px 3px 5px #A0A0A0;
+
 }
 
 .text h4{
     margin: 20px;
     text-align: center;
+    text-shadow: 1px 1px 2px #000000;
 }
 
 .cardSelect h5{
 color: #A0A0A0;
+text-shadow: 1px 1px 2px #A0A0A0;
  
 }
 
@@ -43,6 +48,9 @@ color: #A0A0A0;
     padding: 8px;
     font-size: 16px;
     box-shadow: 3px 3px 5px #A0A0A0;
+   display: flex;
+   justify-content: center;
+  
 }
 
 @media only screen and (max-width: 700px) {
@@ -56,6 +64,7 @@ color: #A0A0A0;
         padding: 1rem;
         font-size: 16px;
         box-shadow: 3px 3px 5px #A0A0A0;
+        text-align: center;
     }
 
     .text{
@@ -64,7 +73,7 @@ color: #A0A0A0;
         align-items: center;
         background-color: #FFCC02;
         min-height: 70px;
-        font-size:16px;
+        font-size:18px;
       
     }
 
@@ -80,7 +89,7 @@ color: #A0A0A0;
         background-color: #FFCC02;
         min-height: 70px;
         font-size:14px;
-      
+       
     }
 
     .buttonSelect{
@@ -89,7 +98,8 @@ color: #A0A0A0;
         background-color: #FFCC02;
         max-width: 150px;
         padding: 1rem;
-        font-size: 16px;
+        font-size: 18px;
         box-shadow: 3px 3px 5px #A0A0A0;
+        text-align: center;
     }
 }

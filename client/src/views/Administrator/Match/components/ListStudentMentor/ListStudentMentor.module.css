@@ -1,0 +1,67 @@
+.container{
+    display: flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items: center;
+}
+
+h2{
+    margin: 20px auto;
+    text-align:center;
+    text-shadow: 1px  1px 2px #000000;
+    box-shadow:  2px  2px 2px #A0A0A0;
+    background-color: #F1F1F1;
+    width:98%;
+    padding:10px
+}
+
+.table{
+    margin: 20px 10px;
+    overflow:scroll;
+    border: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
+.table th{
+    margin: 1px;
+    padding:20px 0px 20px 20px;
+    background-color: #FFCC02;
+    box-shadow:  2px  2px 2px #A0A0A0;
+    text-shadow: 1px  1px 2px #000000;
+    
+}
+
+
+.table td {
+    padding: 8px 0px 8px 20px;
+
+}
+
+button{
+    display: flex;
+    margin: 10px auto;
+    box-shadow: 3px 3px 5px #A0A0A0;
+    text-shadow: 1px  1px 2px #000000;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 700px) {
+
+  
+.buttonSelect{
+  
+    font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+  
+    .buttonSelect{
+      
+        font-size: 14px;
+        }
+    }
