@@ -7,14 +7,15 @@ export default function ListStudentMentor(props) {
   return (
     <div className={style.container}>
       <Sidebar />
-      <div className={style.container}>
+      <div>
+        <div className={style.containerbutton}>
         <button
           style={{ display: done ? "none" : "block" }}
           onClick={calculateMatch}
         >
           Hacer Match
         </button>
-      
+        </div>
         <h2>Lista de Estudiantes</h2>
         <div class="table-responsive">
           <table className={style.table}>
@@ -43,7 +44,7 @@ export default function ListStudentMentor(props) {
                     <td>{e.user_id.secondSurname}</td>
                     <td>{e.user_id.contactNumber}</td>
                     <td>{e.user_id.email}</td>
-                    <td>{e.user_id.gender}</td>
+                    <td>{e.user_id.actualAge}</td>
                   </tr>
                 );
               })}
@@ -117,12 +118,14 @@ export default function ListStudentMentor(props) {
           </div>
         </div>
       )}
+      <div className={style.containerbutton}>
       <button
         style={{ display: done ? "none" : "block" }}
         onClick={calculateMatch}
       >
         Hacer Match
       </button>
+      </div>
     </div>
   );
 }
