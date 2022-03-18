@@ -28,7 +28,7 @@ export default function ListStudentMentor(props) {
                 <th>2° Apellido</th>               
                 <th>N° Teléfono </th>
                 <th>E-mail</th>
-                <th>Intereses</th>
+              
                 
               </tr>
             </thead>
@@ -44,7 +44,7 @@ export default function ListStudentMentor(props) {
                     <td>{e.user_id.secondSurname}</td>
                     <td>{e.user_id.contactNumber}</td>
                     <td>{e.user_id.email}</td>
-                    <td>{e.user_id.actualAge}</td>
+                   
                   </tr>
                 );
               })}
@@ -58,14 +58,13 @@ export default function ListStudentMentor(props) {
           <table className={style.table}>
           <thead>
             <tr>
-              <th>Id </th>
-              <th>1° Nombre</th>
-              <th>2° Nombre</th>
-              <th>1° Apellido</th>
-              <th>2° Apellido</th>
-              <th>Edad</th>
-              <th>Genero</th>
-              <th>Intereses</th>
+            <th>Id </th>
+                <th>1° Nombre</th>
+                <th>2° Nombre</th>
+                <th>1° Apellido</th>
+                <th>2° Apellido</th>               
+                <th>N° Teléfono </th>
+                <th>E-mail</th>
             </tr>
           </thead>
           <tbody>
@@ -74,11 +73,10 @@ export default function ListStudentMentor(props) {
                 <tr key={e.id}>
                   <td>{index + 1}</td>
                   <td>{e.user_id.name}</td>
-                  <td>{e.user_id.middleName}</td>
-                  <td>{e.user_id.lastName}</td>
-                  <td>{e.user_id.secondSurname}</td>
-                  <td>{e.user_id.actualAge}</td>
-                  <td>{e.user_id.contactNumber}</td>
+                    <td>{e.user_id.middleName}</td>
+                    <td>{e.user_id.lastName}</td>
+                    <td>{e.user_id.secondSurname}</td>
+                    <td>{e.user_id.contactNumber}</td>
                     <td>{e.user_id.email}</td>
                 </tr>
               );
