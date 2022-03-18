@@ -8,8 +8,8 @@ export default function ListStudentMentor(props) {
 
 	return (
 		<div>
-			<Sidebar />
-			<div className="listStudent-Container">
+			{/* <Sidebar /> */}
+			<div className={style.container}>
 				<h2 className="listStudent-title">Lista de Estudiantes</h2>
 				<table>
 					<tr className="listStudent-tr">
