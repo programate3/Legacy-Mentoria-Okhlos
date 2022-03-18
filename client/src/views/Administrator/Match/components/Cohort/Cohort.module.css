@@ -1,3 +1,4 @@
+
 .text{
     display: flex;
     justify-content: center;
@@ -102,4 +103,3 @@ text-shadow: 1px 1px 2px #A0A0A0;
         box-shadow: 3px 3px 5px #A0A0A0;
         text-align: center;
     }
-}

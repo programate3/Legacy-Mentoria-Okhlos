@@ -1,3 +1,7 @@
+.container{
+    padding-top: 5%;
+}
+
 @font-face {
     font-family:Gilroy-ExtraBold ;
     src: url(./../../../../assets/Fontfamily/Gilroy-ExtraBold.otf);
@@ -81,7 +85,10 @@ td button{
     }
 }
 @media (min-width: 780px ) {
-    
+    .container{
+        padding-top: 10%;
+    }
+
     .column ,.row  { 
        
         display: flex;
