@@ -17,7 +17,7 @@ const MatchForm = () => {
   const [match, setMatch] = useState([])
   const [cohort, setCohort] = useState(0);
 
-  const baseUrl = 'https://fathomless-bastion-33135.herokuapp.com'
+  const baseUrl = 'http://localhost:3001'
 
   // almacena el valor escogido en la seccion de cohorte (corregir)
   const handleTypeSelect = e => {

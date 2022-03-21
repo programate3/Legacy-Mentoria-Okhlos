@@ -10,16 +10,16 @@ import Axios from 'axios';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 import { blue } from '@material-ui/core/colors';
 
-const Articles=[{
+/* const Articles=[{
    
-  name:"Nombres",
+  /* name:"Nombres",
   Surnames:"Apellidos",
   Age:"Edad",
   Gender:"Género",
   Interests:"Intereses",
   Program:"Programa",
-  MentorAssignment:"Id Mentor"
-}]
+  MentorAssignment:"Id Mentor" */
+/* }] */ 
 
 
 
@@ -91,7 +91,7 @@ const CrudStudents = () => {
     role:1
   })
   //base Url of deploy
-  const baseUrl = 'https://fathomless-bastion-33135.herokuapp.com'
+  const baseUrl = 'http://localhost:3001';
   //Function to insert the data written in the module.
   const InsertData = e => {
     const { name, value } = e.target;
@@ -217,35 +217,34 @@ const CrudStudents = () => {
       
       <SearchContainer h1={"TABLA CONTROL ESTUDIANTES"} placeholder={"Busca un Estudiante"}
         onClick={() => openedClosedModalInsertar()} />
-      <Table th={Articles.map((e) => {
-        return (
+      <Table th={
+        
           <tr className={styles.column}>
-            <th>{e.name}</th>
-            <th>{e.Surnames}</th>
-             <th>{e.Age}</th>
-            <th>{e.Gender}</th>
-            <th>{e.Interests}</th> 
-            <th>{e.Program}</th>
-            <th>{e.MentorAssignment}</th>
-            <th>Editar</th> 
-            <th>Eliminar</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+             <th id={styles.peq}>Edad</th>
+            <th >Genero</th>
+            <th id={styles.gra}>Intereses</th> 
+            {/* <th>Programa</th> */}
+            <th>Mentor</th>
+            <th id={styles.med}>Editar</th> 
              </tr>
-        )
-      })
+        
       }
+      
         th2={students.map((e) => {
           return (
             <tr className={styles.row}>
-              <br />
-              <td>{e.user_id.name +" "+ e.user_id.middleName  }</td>
+             
+              <td >{e.user_id.name +" "+ e.user_id.middleName  }</td>
               <td>{e.user_id.lastName +" "+e.user_id.secondSurname}</td>
-              <td>{e.actualAge}</td>
-              <td>{e.gender}</td>
-              <td>{e.interestsStudent[0] + " "+e.interestsStudent[1]+" "+e.interestsStudent[2]}</td>
-              <td>{e.user_id.program }</td>
+              <td id={styles.peq}>{e.actualAge}</td>
+              <td >{e.gender}</td>
+              <td id={styles.gra}>{e.interestsStudent[0] + " "+e.interestsStudent[1]+" "+e.interestsStudent[2]}</td>
+              {/* <td>{e.user_id.program }</td> */}
               <td>{e.assignedMentor}</td>
-              <td><button className={styles.update}><FontAwesomeIcon icon={faEdit} /></button></td>
-              <td><button className={styles.delete}><FontAwesomeIcon icon={faTrashAlt} /></button></td><br />
+              <td id={styles.med}><button className={styles.update}><FontAwesomeIcon icon={faEdit} /></button>
+              <button className={styles.delete}><FontAwesomeIcon icon={faTrashAlt} /></button></td>
               
              
             </tr>

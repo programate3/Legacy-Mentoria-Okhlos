@@ -17,9 +17,9 @@ const Articles=[{
   FechaDiligenciamiento  :"Fecha Diligenciamiento",
   SesiónN:"Sesión N°" 
 }]
-
+/* toca conectar esto con la base de datos */
 const Database=[{
-  IdEstudiante:"id Estudiante" ,
+  IdEstudiante:"30" ,
   Estudiante:"Estudiante",
   FechaDiligenciamiento  :"Fecha Diligenciamiento",
   SesiónN:"Sesión N°"
