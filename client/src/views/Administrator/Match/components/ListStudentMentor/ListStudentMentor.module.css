@@ -1,98 +1,97 @@
 @media screen and (max-width: 320px) {
-    .table {
-      display: block;
-      overflow-x: auto;
-    }
+  .table {
+    display: block;
+    overflow-x: auto;
+  }
 }
 
 .column {
-    display: flex;
-    flex-direction:row;
-
+  display: flex;
+  flex-direction: row;
 }
 
-.containerTable{
-    overflow-x:scroll;
-    width: 100vw; 
+.containerTable {
+  overflow-x: scroll;
+  width: 95vw;
+  overflow-y: scroll;
+  max-height: 350px;
 }
 
-.container{
-    display: flex;
-    justify-content:center;
-    flex-direction:column;
-    align-items: center;
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-h2{
-    margin: 20px auto;
-    text-align:center;
-    text-shadow: 1px  1px 2px #000000;
-    box-shadow:  2px  2px 2px #A0A0A0;
-    background-color: #F1F1F1;
-    width:98%;
-    padding:10px
+h2 {
+  margin: 0px auto;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000000;
+  box-shadow: 2px 2px 2px #a0a0a0;
+  background-color: #f1f1f1;
+  width: 100%;
+  padding: 10px 0;
 }
 
-table{
-    margin: 20px 10px;
-    overflow:scroll;
-    border: none;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-   
+table {
+  width: 92vw;
+  margin: 20px auto;
+  overflow: scroll;
+  border: none;
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
-
-
 
 .table th {
-    margin: 1px;
-    padding:20px 0px 20px 20px;
-    background-color: #FFCC02;
-    box-shadow:  2px  2px 2px #A0A0A0;
-    text-shadow: 1px  1px 2px #000000;
+  margin: 1px;
+  padding: 20px 0px 20px 20px;
+  background-color: #ffcc02;
+  box-shadow: 2px 2px 2px #a0a0a0;
+  font-weight:800;
+}
+.table tr {
+  overflow-x: scroll;
+}
+tbody tr:hover{
+  background-color: #cccccc;
   
-    
-}
-.table tr{
-    overflow-x: scroll;
 }
 
-
-.containerbutton{
-    width: 100%;
-    display:flex;
-    justify-content: right;
-    margin-right: 15%;
+.containerbutton {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  margin-right: 10%;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
-
 
 .table td {
-    padding: 8px 0px 8px 20px;
-
+  padding: 8px 0px 8px 20px;
 }
 
-button{
-    display: flex;
-    margin: 10px 0;
-    box-shadow: 3px 3px 5px #A0A0A0;
-    text-shadow: 1px  1px 2px #000000;
-    font-size: 18px;
+button {
+  box-shadow: 3px 3px 5px #a0a0a0;
+  text-shadow: 1px 1px 2px #000000;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #000000;
+  color: #ffcc02;
 }
 
 @media only screen and (max-width: 700px) {
-
-  
-.buttonSelect{
-  
+  .buttonSelect {
     font-size: 16px;
-    }
+  }
 }
 
 @media only screen and (max-width: 400px) {
-
-  
-    .buttonSelect{
-      
-        font-size: 14px;
-        }
-    }
+  .buttonSelect {
+    font-size: 14px;
+  }
+}

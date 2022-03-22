@@ -1,71 +1,66 @@
 .Container{
-    width: 100vw;
-    height: 70vh;
-    margin: 0em 0rem 1rem 0rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:space-evenly;
-    
-    
-    
+    padding: 0;
+    margin: 0;
 }
-.Container h1{
-   text-align: center;
-    color: #4CAF50;
-    font-family: Gilroy-ExtraBold;
-    font-size:1.5rem;
+.Container h2{
+    color:#000000;
+    background-color: #F1F1F1;
+    width: 99%;
+    padding: 20px 0;
+    text-shadow: 1px 1px 2px #000000;
+    box-shadow: 2px 2px 2px #a0a0a0;
+    margin:10px;
+   
 }
 
 .Container input{
-    width:65vw;
-    height:5vh;
+    min-width:25vw;
+    height:6vh;
     border: #010101 solid 0.12rem;
     border-radius: 1rem;
+    padding: 2px 15px;
 }
-.Container button {
+
+.button {
     width:50%;
-    background-color: #ffdf5f;
+    background-color: #FFCC02;
     color: black;
-    padding: 0.5rem;
-    border-radius: 0.4rem;
+    padding: 10px;
+    border-radius: 10px;
+    display:flex;
+    justify-content:center;
+  
     
 }
 
 .Container button:hover{
-    background-color:#FFCC02; 
+    background-color:#000000; 
+    color: #FFCC02;
 }
-@media (min-width: 350px ) {
-    
-    .container h1{
-       font-size:90%;
-    }
-    .Container input{
-        width:60vw;
-        height: 6vh;
-        
-    }
-    
- }
-@media (min-width: 780px ) {
-    .Container{
-        height: 40vh;
-    }
-    
-    .Container input{
-        width:50vw;
-        
-    }
-    .Container button {
-        width:30%;
-        
-        
-    }
 
-    .ontainer{
-      height: 50vh;
-    }
-    
+.searchButton{
+
+ display:flex;
+ flex-direction: column;
+ justify-content:space-between;
+ align-items:center;
+ width:94%;
+ margin: auto;
+ margin-top: 20px;
+ 
+
+}
+
+@media (min-width: 500px ) {
+    .searchButton{
+     
+        display:flex;
+        flex-direction: row;
+        align-items:center;
+       
+       }
+  
     
  }
+
 

@@ -93,7 +93,7 @@ const CrudStudents = () => {
     role:1
   })
   //base Url of deploy
-  const baseUrl = 'https://fathomless-bastion-33135.herokuapp.com'
+  const baseUrl = 'http://localhost:3001';
   //Function to insert the data written in the module.
   const InsertData = e => {
     const { name, value } = e.target;

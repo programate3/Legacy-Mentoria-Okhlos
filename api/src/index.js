@@ -6,6 +6,8 @@ const allRoutes = require('./routes/index')
 
 // Conection MongoDB
 require('./db/mongo')
+const profile = require('./db/models/Profile');
+
 
 // Init Express
 const app = express()
@@ -21,6 +23,11 @@ app.use(allRoutes)
 const port = process.env.PORT || 'fathomless-bastion-33135.herokuapp.com'
 // defines a port and passes the value to it
 app.set('port', port)
+
+app.get('/', async (req, res) => {
+  const resul = await profile.find({}).populate('user_id')
+  res.json(resul)
+})
 
 // Init Server
 app.listen(app.get('port'), error => {
