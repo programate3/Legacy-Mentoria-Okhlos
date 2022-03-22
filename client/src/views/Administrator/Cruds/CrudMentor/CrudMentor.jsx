@@ -7,93 +7,9 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Button, TextField } from '@material-ui/core';
 import Axios from 'axios';
-import Sidebar from '../../../../components/Sidebar/Sidebar';
 
-const baseUrl = 'https://fathomless-bastion-33135.herokuapp.com';
+const baseUrl = 'http://localhost:3001';
 
-<<<<<<< HEAD
-
-
-
-const baseUrl = 'http://localhost:3001'
-
- //Yellow row data
- const Articles=[{
-    Id:"id" ,
-    Nombres :"Nombres" ,
-    Apellidos:"Apellidos",
-    Edad:"Edad",
-    Género:"Género",
-    Intereses :"Intereses ",
-    Programa :"Programa ",
-    Carrera  : " Carrera  ",
-    Empresa  :" Empresa  ",
-    AsignaciónEst:"Asignación Est"
-  }]
- //Table data
-  const Database=[{
-    Id:"id" ,
-    Nombres :"Nombres" ,
-    Apellidos:"Apellidos",
-    Edad:"Edad",
-    Género:"Género",
-    Intereses :"Intereses ",
-    Programa :"Programa ",
-    Carrera  : " Carrera  ",
-    Empresa  :" Empresa  ",
-    AsignaciónEst:"Asignación Est"  
-  },
-  {
-    Id:"id" ,
-    Nombres :"Nombres" ,
-    Apellidos:"Apellidos",
-    Edad:"Edad",
-    Género:"Género",
-    Intereses :"Intereses ",
-    Programa :"Programa ",
-    Carrera  : " Carrera  ",
-    Empresa  :" Empresa  ",
-    AsignaciónEst:"Asignación Est"
-  },
-  {
-    Id:"id" ,
-    Nombres :"Nombres" ,
-    Apellidos:"Apellidos",
-    Edad:"Edad",
-    Género:"Género",
-    Intereses :"Intereses ",
-    Programa :"Programa ",
-    Carrera  : " Carrera  ",
-    Empresa  :" Empresa  ",
-    AsignaciónEst:"Asignación Est"
-  },
-  {
-    Id:"id" ,
-    Nombres :"Nombres" ,
-    Apellidos:"Apellidos",
-    Edad:"Edad",
-    Género:"Género",
-    Intereses :"Intereses ",
-    Programa :"Programa ",
-    Carrera  : " Carrera  ",
-    Empresa  :" Empresa  ",
-    AsignaciónEst:"Asignación Est" 
-  },
-  {
-    Id:"id" ,
-    Nombres :"Nombres" ,
-    Apellidos:"Apellidos",
-    Edad:"Edad",
-    Género:"Género",
-    Intereses :"Intereses ",
-    Programa :"Programa ",
-    Carrera  : " Carrera  ",
-    Empresa  :" Empresa  ",
-    AsignaciónEst:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi atque quibusdam cum, alias quasi, voluptas soluta neque inventore facilis minima reprehenderit voluptatum ducimus! Dicta, atque eaque. Reiciendis autem quae vitae."
-  }
-] 
-
-=======
 //Yellow row data
 const Articles = [
 	{
@@ -173,7 +89,6 @@ const Database = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi atque quibusdam cum, alias quasi, voluptas soluta neque inventore facilis minima reprehenderit voluptatum ducimus! Dicta, atque eaque. Reiciendis autem quae vitae.',
 	},
 ];
->>>>>>> e023be9b3fa59d0bef42040af1a8fc08147e4534
 
 //Modal styles
 const useStyles = makeStyles((theme) => ({

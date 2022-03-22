@@ -10,20 +10,6 @@ import Axios from 'axios';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 import { blue } from '@material-ui/core/colors';
 
-<<<<<<< HEAD
-/* const Articles=[{
-   
-  /* name:"Nombres",
-  Surnames:"Apellidos",
-  Age:"Edad",
-  Gender:"Género",
-  Interests:"Intereses",
-  Program:"Programa",
-  MentorAssignment:"Id Mentor" */
-/* }] */ 
-
-
-=======
 const Articles = [
 	{
 		name: 'Nombres',
@@ -35,7 +21,6 @@ const Articles = [
 		MentorAssignment: 'Id Mentor',
 	},
 ];
->>>>>>> e023be9b3fa59d0bef42040af1a8fc08147e4534
 
 //Modal styles
 const useStyles = makeStyles((theme) => ({
@@ -113,7 +98,6 @@ TextField:{
 }));
 
 const CrudStudents = () => {
-<<<<<<< HEAD
   
   const [data, setData] = useState([]);
   const Styles = useStyles();
@@ -146,39 +130,6 @@ const CrudStudents = () => {
   }
   //function that searches the database for data
   /* const petitionGet=async()=>{
-=======
-	const [data, setData] = useState([]);
-	const Styles = useStyles();
-	const [modalinsertar, setmodalinsertar] = useState(false);
-	const [modalEdit, setModalEdit] = useState(false);
-	//Insert saved module data
-	const [SavedData, setSavedData] = useState({
-		name: '',
-		middleName: '',
-		lastName: '',
-		secondSurname: '',
-		actualAge: '',
-		gender: '',
-		program: '',
-		email: '',
-		contactNumber: '',
-		cohorte: '',
-		role: 1,
-	});
-	//base Url of deploy
-	const baseUrl = 'https://fathomless-bastion-33135.herokuapp.com';
-	//Function to insert the data written in the module.
-	const InsertData = (e) => {
-		const { name, value } = e.target;
-		setSavedData((prevState) => ({
-			...prevState,
-			[name]: value,
-		}));
-		console.log(SavedData);
-	};
-	//function that searches the database for data
-	/* const petitionGet=async()=>{
->>>>>>> e023be9b3fa59d0bef42040af1a8fc08147e4534
    await axios.get(Database)
     .then(response=>{
       console.log(response.data)
@@ -500,7 +451,6 @@ export default CrudStudents;
 
   return (
     <>
-    <Sidebar/>
     <div className={styles.container}>
 
       

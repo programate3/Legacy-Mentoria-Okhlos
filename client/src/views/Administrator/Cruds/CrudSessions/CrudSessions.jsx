@@ -13,7 +13,6 @@ import { Modal, Button, TextField } from '@material-ui/core';
 import axios from 'axios';
 import Sidebar from '../../../../components/Sidebar/Sidebar';
 
-<<<<<<< HEAD
 
 const Articles=[{
   IdEstudiante:"id Estudiante" ,
@@ -53,50 +52,6 @@ const Database=[{
   SesiónN:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus sapiente iure assumenda at delectus id nobis explicabo sunt, in nihil veritatis omnis? Repellat alias ex est voluptatum rem. Voluptas, perferendis."
 }
 ]
-=======
-const Articles = [
-	{
-		IdEstudiante: 'id Estudiante',
-		Estudiante: 'Estudiante',
-		FechaDiligenciamiento: 'Fecha Diligenciamiento',
-		SesiónN: 'Sesión N°',
-	},
-];
-
-const Database = [
-	{
-		IdEstudiante: 'id Estudiante',
-		Estudiante: 'Estudiante',
-		FechaDiligenciamiento: 'Fecha Diligenciamiento',
-		SesiónN: 'Sesión N°',
-	},
-	{
-		IdEstudiante: 'id Estudiante',
-		Estudiante: 'Estudiante',
-		FechaDiligenciamiento: 'Fecha Diligenciamiento',
-		SesiónN: 'Sesión N°',
-	},
-	{
-		IdEstudiante: 'id Estudiante',
-		Estudiante: 'Estudiante',
-		FechaDiligenciamiento: 'Fecha Diligenciamiento',
-		SesiónN: 'Sesión N°',
-	},
-	{
-		IdEstudiante: 'id Estudiante',
-		Estudiante: 'Estudiante',
-		FechaDiligenciamiento: 'Fecha Diligenciamiento',
-		SesiónN: 'Sesión N°',
-	},
-	{
-		IdEstudiante: 'id Estudiante',
-		Estudiante: 'Estudiante',
-		FechaDiligenciamiento: 'Fecha Diligenciamiento',
-		SesiónN:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus sapiente iure assumenda at delectus id nobis explicabo sunt, in nihil veritatis omnis? Repellat alias ex est voluptatum rem. Voluptas, perferendis.',
-	},
-];
->>>>>>> e023be9b3fa59d0bef42040af1a8fc08147e4534
 
 //Modal styles
 const useStyles = makeStyles((theme) => ({
