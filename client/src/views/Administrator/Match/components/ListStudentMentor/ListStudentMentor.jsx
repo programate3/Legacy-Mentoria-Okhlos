@@ -1,12 +1,10 @@
 import style from "./ListStudentMentor.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "../../../../../components/Sidebar/Sidebar";
 export default function ListStudentMentor(props) {
   const { students, mentors, done, match, calculateMatch } = props;
 
   return (
     <div className={style.container}>
-      <Sidebar />
       <div>
         <h2>Lista de Estudiantes</h2>
         <div class={style.containerTable}>

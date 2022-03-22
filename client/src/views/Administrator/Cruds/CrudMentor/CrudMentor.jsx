@@ -316,7 +316,6 @@ const CrudMentor = () => {
 	return (
 		<div className={styles.container}>
 			{/*title and add button*/}
-			<Sidebar />
 			<SearchContainer
 				h1={'TABLA CONTROL DE MENTORES '}
 				placeholder={' Buscar Mentor'}

@@ -11,7 +11,6 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Button, TextField } from '@material-ui/core';
 import axios from 'axios';
-import Sidebar from '../../../../components/Sidebar/Sidebar';
 
 
 const Articles=[{
@@ -195,7 +194,6 @@ useEffect(async()=>{
 
 	return (
 		<div className={styles.container}>
-			{/* <Sidebar/> */}
 			<SearchContainer
 				h1={'TABLA DE CONTROL DE SESIONES '}
 				placeholder={'Busca un Estudiante'}
