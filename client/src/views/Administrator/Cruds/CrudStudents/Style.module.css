@@ -1,3 +1,7 @@
+.container{
+    padding-top: 5%;
+}
+
 @font-face {
     font-family:Gilroy-ExtraBold ;
     src: url(./../../../../assets/Fontfamily/Gilroy-ExtraBold.otf);
@@ -105,9 +109,20 @@
         width: 100vw;
       
     }
+<<<<<<< HEAD
     
     /*  aqui se puso el row */
     .column{
+=======
+}
+@media (min-width: 780px ) {
+    .container{
+        padding-top: 10%;
+    }
+
+    .column ,.row  { 
+       
+>>>>>>> e023be9b3fa59d0bef42040af1a8fc08147e4534
         display: flex;
         flex-direction:row;
     }
