@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import styles from './CrudMentor.module.css';
-import Table from '../../../../components/Table/Table';
 import SearchContainer from '../../../../components/SearchContainer/SearchContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Button, TextField } from '@material-ui/core';
 import Axios from 'axios';
+import Sidebar from '../../../../components/Sidebar/Sidebar';
+import { BiSearchAlt } from 'react-icons/bi';
 
 const baseUrl = 'http://localhost:3001';
 
@@ -85,8 +86,19 @@ const Database = [
 		Programa: 'Programa ',
 		Carrera: ' Carrera  ',
 		Empresa: ' Empresa  ',
-		AsignaciónEst:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi atque quibusdam cum, alias quasi, voluptas soluta neque inventore facilis minima reprehenderit voluptatum ducimus! Dicta, atque eaque. Reiciendis autem quae vitae.',
+		AsignaciónEst: 'Lorem  vitae.',
+	},
+	{
+		Id: 'id',
+		Nombres: 'Nombres',
+		Apellidos: 'Apellidos',
+		Edad: 'Edad',
+		Género: 'Género',
+		Intereses: 'Intereses ',
+		Programa: 'Programa ',
+		Carrera: ' Carrera  ',
+		Empresa: ' Empresa  ',
+		AsignaciónEst: 'Lorem  vitae.',
 	},
 ];
 
@@ -149,16 +161,6 @@ const CrudMentor = () => {
 		}));
 		console.log(SavedData);
 	};
-	//function that searches the database for data
-	/*const petitionGet=async()=>{
- await axios.get(Database)
-  .then(response=>{
-    console.log(response.data)
-  })
-}
-useEffect(async()=>{
- await petitionGet();
-},[])*/
 
 	//function that inserts data into the database
 	const [students, setStudents] = useState([]);
@@ -193,98 +195,120 @@ useEffect(async()=>{
 	//Modal structure Insertar
 
 	const bodyInsertar = (
-		<div className={Styles.modal}>
-			<h3 className={Styles.h3}>AGREGAR NUEVO MENTOR</h3>
+		<div className={styles.modal}>
+			<h3 className={styles.h3}>AGREGAR NUEVO MENTOR</h3>
 
-			<TextField
-				name="Nombres"
-				className={Styles.inputMaterial}
-				label="Nombre"
-				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
-			/>
-			<br />
-			<TextField
-				name="Apellidos"
-				className={Styles.inputMaterial}
-				label="Apellido"
-				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
-			/>
-			<br />
-			<TextField
-				name="Género"
-				className={Styles.inputMaterial}
-				label="Género"
-				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
-			/>
-			<br />
-			<TextField
-				name="Edad"
-				className={Styles.inputMaterial}
-				label="Edad"
-				onChange={InsertData}
-			/>
-			<br />
-			<TextField
-				name="Hijos"
-				className={Styles.inputMaterial}
-				label="Hijos"
-				onChange={InsertData}
-			/>
-			<br />
-			<TextField
-				name="Intereses"
-				className={Styles.inputMaterial}
-				label="Intereses"
-				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
-			/>
-			<br />
-			<TextField
-				name="Programa"
-				className={Styles.inputMaterial}
-				label="Programa"
-				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
-			/>
-			<br />
-			<TextField
-				name="Carrera"
-				className={Styles.inputMaterial}
-				label="Carrera"
-				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
-			/>
-			<br />
-			<TextField
-				name="Empresa"
-				className={Styles.inputMaterial}
-				label="Empresa"
-				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
-			/>
-			<br />
-			<TextField
-				name="AsignaciónEst"
-				className={Styles.inputMaterial}
-				label="Asignación Est"
-				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
-			/>
-			<br />
-			<br />
-			<div align="right">
-				<Button className={Styles.Button} /*onClick={()=>petitionPost()}*/>
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="Nombres"
+						className={Styles.inputMaterial}
+						label="Nombre"
+						onChange={InsertData}
+						value={SavedData && SavedData.Nombres}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="Apellidos"
+						className={Styles.inputMaterial}
+						label="Apellido"
+						onChange={InsertData}
+						value={SavedData && SavedData.Nombres}
+					/>
+				</div>
+			</div>
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="Género"
+						className={Styles.inputMaterial}
+						label="Género"
+						onChange={InsertData}
+						value={SavedData && SavedData.Nombres}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="Edad"
+						className={Styles.inputMaterial}
+						label="Edad"
+						onChange={InsertData}
+					/>
+				</div>
+			</div>
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="Hijos"
+						className={Styles.inputMaterial}
+						label="Hijos"
+						onChange={InsertData}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="Intereses"
+						className={Styles.inputMaterial}
+						label="Intereses"
+						onChange={InsertData}
+						value={SavedData && SavedData.Nombres}
+					/>
+				</div>
+			</div>
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="Programa"
+						className={Styles.inputMaterial}
+						label="Programa"
+						onChange={InsertData}
+						value={SavedData && SavedData.Nombres}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="Carrera"
+						className={Styles.inputMaterial}
+						label="Carrera"
+						onChange={InsertData}
+						value={SavedData && SavedData.Nombres}
+					/>
+				</div>
+			</div>
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="Empresa"
+						className={Styles.inputMaterial}
+						label="Empresa"
+						onChange={InsertData}
+						value={SavedData && SavedData.Nombres}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="AsignaciónEst"
+						className={Styles.inputMaterial}
+						label="Asignación Est"
+						onChange={InsertData}
+						value={SavedData && SavedData.Nombres}
+					/>
+				</div>
+			</div>
+			<br></br>
+			<br></br>
+
+			<div align="center">
+				<button className={styles.button} /*onClick={()=>petitionPost()}*/>
 					Insertar
-				</Button>
-				<Button
-					className={Styles.Button}
+				</button>
+				<button
+					className={styles.button}
 					onClick={() => openedClosedModalInsertar()}
 				>
 					Cancelar
-				</Button>
+				</button>
 			</div>
 		</div>
 	);
@@ -292,70 +316,66 @@ useEffect(async()=>{
 	return (
 		<div className={styles.container}>
 			{/*title and add button*/}
-			{/* <Sidebar/> */}
+			<Sidebar />
 			<SearchContainer
-				h1={'TABLA DE CONTROL DE LOS MENTORES '}
-				placeholder={'Busca un Mentor'}
+				h1={'TABLA CONTROL DE MENTORES '}
+				placeholder={' Buscar Mentor'}
+				button={'Insertar Mentor'}
 				onClick={() => openedClosedModalInsertar()}
 			/>
 
 			{/*mapping the yellow row data*/}
-
-			<Table
-				th={Articles.map((e) => {
-					return (
-						<tr className={styles.column}>
-							<th>{e.Id}</th>
-							<th>{e.Nombres}</th>
-							<th>{e.Apellidos}</th>
-							<th>{e.Edad}</th>
-							<th>{e.Género}</th>
-							<th>{e.Intereses}</th>
-							<th>{e.Programa}</th>
-							<th>{e.Carrera}</th>
-							<th>{e.Empresa}</th>
-							<th>{e.AsignaciónEst}</th>
-							<th>Editar</th>
-							<th>Eliminar</th>
-						</tr>
-					);
-				})}
-				/*table data mapping*/
-
-				th2={Database.map((e) => {
-					return (
-						<tr className={styles.row}>
-							<br />
-							<td>{e.Id}</td>
-							<td>{e.Nombres}</td>
-							<td> {e.Apellidos}</td>
-							<td>{e.Edad}</td>
-							<td>{e.Género}</td>
-							<td>{e.Intereses}</td>
-							<td>{e.Programa}</td>
-							<td>{e.Carrera}</td>
-							<td>{e.Empresa}</td>
-							<td>{e.AsignaciónEst}</td>
-							<br />
-							<>
-								<td>
-									<button className={styles.update}>
-										<FontAwesomeIcon icon={faEdit} />
-									</button>
-								</td>
-								<td>
-									<button className={styles.delete}>
-										<FontAwesomeIcon icon={faTrashAlt} />
-									</button>
-								</td>
-							</>
-							<br />
-							<br />
-						</tr>
-					);
-				})}
-			/>
-
+			<div class={styles.containerTable}>
+				<table className={styles.table}>
+					<thead>
+						{Articles.map((e) => {
+							return (
+								<tr>
+									<th>{e.Id}</th>
+									<th>{e.Nombres}</th>
+									<th>{e.Apellidos}</th>
+									<th>{e.Edad}</th>
+									<th>{e.Género}</th>
+									<th>{e.Intereses}</th>
+									<th>{e.Programa}</th>
+									<th>{e.Carrera}</th>
+									<th>{e.Empresa}</th>
+									<th>{e.AsignaciónEst}</th>
+									<th>Acciones</th>
+								</tr>
+							);
+						})}
+					</thead>
+					<tbody>
+						{Database.map((e) => {
+							return (
+								<tr>
+									<td>{e.Id}</td>
+									<td>{e.Nombres}</td>
+									<td> {e.Apellidos}</td>
+									<td>{e.Edad}</td>
+									<td>{e.Género}</td>
+									<td>{e.Intereses}</td>
+									<td>{e.Programa}</td>
+									<td>{e.Carrera}</td>
+									<td>{e.Empresa}</td>
+									<td>{e.AsignaciónEst}</td>
+									<td>
+										<div className={styles.containerbutton}>
+											<button id={styles.update}>
+												<FontAwesomeIcon icon={faEdit} />
+											</button>{' '}
+											<button id={styles.delete}>
+												<FontAwesomeIcon icon={faTrashAlt} />
+											</button>
+										</div>
+									</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+			</div>
 			<Modal open={modalinsertar} onClose={openedClosedModalInsertar}>
 				{bodyInsertar}
 			</Modal>

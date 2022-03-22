@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import axios from 'axios'
-
+import style from './matchform.module.css';
 import ListStudentMentor from './components/ListStudentMentor/ListStudentMentor';
 import Cohort from './components/Cohort/Cohort';
 
@@ -162,7 +162,7 @@ const MatchForm = () => {
   }
 
   return (
-    <>
+    <div>
       {chosenProgram ? 
       <ListStudentMentor 
         students={students}
@@ -175,7 +175,7 @@ const MatchForm = () => {
         handleTypeSelect={handleTypeSelect}
         getValuesFinal={getValuesFinal}
       />}
-    </>
+    </div>
   )
 }
 
