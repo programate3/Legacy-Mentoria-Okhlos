@@ -6,7 +6,7 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Button, TextField } from '@material-ui/core';
 import Axios from 'axios';
-import Sidebar from '../../../../components/Sidebar/Sidebar';
+
 import { BiSearchAlt } from 'react-icons/bi';
 
 const baseUrl = 'http://localhost:3001';
@@ -361,7 +361,7 @@ const CrudMentor = () => {
 									<td>{e.AsignaciónEst}</td>
 									<td>
 										<div className={styles.containerbutton}>
-											<button id={styles.update}>
+											<button id={styles.update} onClick={() => openedClosedModalInsertar()}>
 												<FontAwesomeIcon icon={faEdit} />
 											</button>{' '}
 											<button id={styles.delete}>

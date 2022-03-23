@@ -3,12 +3,12 @@ import styles from './Style.module.css';
 import Table from '../../../../components/Table/Table';
 import SearchContainer from '../../../../components/SearchContainer/SearchContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt,faEye } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Button, TextField } from '@material-ui/core';
 import Axios from 'axios';
-import Sidebar from '../../../../components/Sidebar/Sidebar';
-import { blue } from '@material-ui/core/colors';
+/* import Sidebar from '../../../../components/Sidebar/Sidebar';
+import { blue } from '@material-ui/core/colors'; */
 
 const Articles = [
 	{
@@ -565,6 +565,9 @@ export default CrudStudents;
 									</button>
 									<button className={styles.delete}>
 										<FontAwesomeIcon icon={faTrashAlt} />
+									</button>
+									<button className={styles.delete}>
+										<FontAwesomeIcon icon={faEye} />
 									</button>
 								</td>
 							</tr>
