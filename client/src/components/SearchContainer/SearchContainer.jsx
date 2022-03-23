@@ -20,6 +20,7 @@ const SearchContainer = (props) => {
 				<button className={Styles.button} onClick={props.onClick}>
 					{props.button}
 				</button>
+				
 			</div>
 		</div>
 	);

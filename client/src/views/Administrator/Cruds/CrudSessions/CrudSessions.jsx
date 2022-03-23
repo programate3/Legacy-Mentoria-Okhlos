@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import styles from './CrudSessions.module.css';
-import Table from '../../../../components/Table/Table';
 import SearchContainer from '../../../../components/SearchContainer/SearchContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -48,7 +47,7 @@ const Database=[{
   IdEstudiante:"id Estudiante" ,
   Estudiante:"Estudiante",
   FechaDiligenciamiento  :"Fecha Diligenciamiento",
-  SesiónN:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus sapiente iure assumenda at delectus id nobis explicabo sunt, in nihil veritatis omnis? Repellat alias ex est voluptatum rem. Voluptas, perferendis."
+  SesiónN:"Lorem ipsum dolor sit lx ."
 }
 ]
 
@@ -143,8 +142,8 @@ useEffect(async()=>{
 	//Modal structure Insertar
 
 	const bodyInsertar = (
-		<div className={Styles.modal}>
-			<h3 className={Styles.h3}>EDITAR UNA SESIÓN</h3>
+		<div className={styles.modal}>
+			<h3 className={styles.h3}>EDITAR UNA SESION</h3>
 			<TextField
 				name="id"
 				className={Styles.inputMaterial}
@@ -178,16 +177,16 @@ useEffect(async()=>{
 			/>
 			<br />
 			<br />
-			<div className={Styles.button}>
-				<Button className={Styles.Button} /* onClick={()=>petitionPost()}*/>
+			<div align="center" >
+				<button className={styles.button} /* onClick={()=>petitionPost()}*/>
 					Insertar
-				</Button>
-				<Button
-					className={Styles.Button}
+				</button>
+				<button
+					className={styles.button}
 					onClick={() => openedClosedModalInsertar()}
 				>
 					Cancelar
-				</Button>
+				</button>
 			</div>
 		</div>
 	);
@@ -195,48 +194,56 @@ useEffect(async()=>{
 	return (
 		<div className={styles.container}>
 			<SearchContainer
-				h1={'TABLA DE CONTROL DE SESIONES '}
-				placeholder={'Busca un Estudiante'}
+				h1={'TABLA DE DETALLE DE SESIONES '}
+				placeholder={'Buscar Sesión'}
+				button={'Insertar Sesión'}
 				onClick={() => openedClosedModalInsertar()}
 			/>
-			<Table
-				th={Articles.map((e) => {
+			<div class={styles.containerTable}>
+				<table className={styles.table}>
+					<thead>
+				{Articles.map((e) => {
 					return (
-						<tr className={styles.column}>
+						<tr>
 							<th>{e.IdEstudiante}</th>
 							<th>{e.Estudiante}</th>
 							<th>{e.FechaDiligenciamiento}</th>
 							<th>{e.SesiónN}</th>
-							<th>Editar</th>
-							<th>Eliminar</th>
+							<th>Acciones</th>
+							
 						</tr>
 					);
 				})}
-				th2={Database.map((e) => {
+
+					</thead>
+					<tbody>
+				{Database.map((e) => {
 					return (
-						<tr className={styles.row}>
-							<td className={styles.rowone}>{e.IdEstudiante}</td>
-							<td className={styles.rowone}>{e.Estudiante}</td>
-							<td className={styles.rowone}> {e.FechaDiligenciamiento}</td>
-							<td className={styles.rowone}>{e.SesiónN}</td>
+						<tr>
+							<td>{e.IdEstudiante}</td>
+							<td >{e.Estudiante}</td>
+							<td > {e.FechaDiligenciamiento}</td>
+							<td >{e.SesiónN}</td>
 
 							<>
 								<td>
-									<button className={styles.update}>
+								<div className={styles.containerbutton}>
+									<button id={styles.update}>
 										<FontAwesomeIcon icon={faEdit} />
 									</button>
-								</td>
-								<td>
-									<button className={styles.delete}>
+									<button id={styles.delete}>
 										<FontAwesomeIcon icon={faTrashAlt} />
 									</button>
+									</div>
 								</td>
+								
 							</>
 						</tr>
 					);
 				})}
-			/>
-
+				</tbody>
+			</table>
+			</div>
 			<Modal open={modalinsertar} onClose={openedClosedModalInsertar}>
 				{bodyInsertar}
 			</Modal>
