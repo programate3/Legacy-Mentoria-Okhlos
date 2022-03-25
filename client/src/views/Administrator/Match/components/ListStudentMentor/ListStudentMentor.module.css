@@ -43,14 +43,13 @@
   padding: 20px 0px 20px 20px;
   background-color: #ffcc02;
   box-shadow: 2px 2px 2px #a0a0a0;
-  font-weight:800;
+  font-weight: 800;
 }
 .table tr {
   overflow-x: scroll;
 }
-tbody tr:hover{
+tbody tr:hover {
   background-color: #cccccc;
-  
 }
 
 .containerbutton {
@@ -78,8 +77,6 @@ button:hover {
   background-color: #000000;
   color: #ffcc02;
 }
-
-
 
 @media only screen and (max-width: 800px) {
   .buttonSelect {
