@@ -383,6 +383,34 @@ const CrudStudents = () => {
           />
         </div>
       </div>
+      <div className="row ">
+        <div className="form-group col-md-6">
+          <TextField
+            name="mentor"
+            className={Styles.inputMaterial}
+            label="Mentor"
+            onChange={InsertData}
+            value={SavedData && SavedData.cohorte}
+          />
+          <br />
+        </div>
+        <div className="form-group col-md-6">
+        <select
+          type="select"
+          className="form-control"
+          name="estado"
+          onChange={InsertData}
+          value={SavedData && SavedData.MentorAssignment}
+          aria-label="Default select example"
+        >
+          <option value="0" selected="">
+            Estado
+          </option>
+          <option value="Habilitado">Habilitado</option>
+          <option value="Masculino">Deshabilitado</option>
+        </select>
+        </div>
+      </div>
 
       <br />
       <div align="center">
@@ -506,7 +534,6 @@ const CrudStudents = () => {
               Administración de Empresas
             </option>
           </select>
-          <br />
         </div>
       </div>
       <div className="row ">
@@ -518,7 +545,7 @@ const CrudStudents = () => {
             onChange={InsertData}
             value={SavedData && SavedData.email}
           />
-          <br />
+       
         </div>
         <div className="form-group col-md-6">
           <TextField
@@ -550,6 +577,34 @@ const CrudStudents = () => {
             onChange={InsertData}
             value={SavedData && SavedData.password}
           />
+        </div>
+      </div>
+      <div className="row ">
+        <div className="form-group col-md-6">
+          <TextField
+            name="mentor"
+            className={Styles.inputMaterial}
+            label="Mentor"
+            onChange={InsertData}
+            value={SavedData && SavedData.cohorte}
+          />
+          <br />
+        </div>
+        <div className="form-group col-md-6">
+        <select
+          type="select"
+          className="form-control"
+          name="estado"
+          onChange={InsertData}
+          value={SavedData && SavedData.MentorAssignment}
+          aria-label="Default select example"
+        >
+          <option value="0" selected="">
+            Estado
+          </option>
+          <option value="Habilitado">Habilitado</option>
+          <option value="Masculino">Deshabilitado</option>
+        </select>
         </div>
       </div>
 
@@ -721,6 +776,34 @@ const CrudStudents = () => {
             onChange={InsertData}
             value={SavedData && SavedData.password}
           />
+        </div>
+      </div>
+      <div className="row ">
+        <div className="form-group col-md-6">
+          <TextField
+            name="mentor"
+            className={Styles.inputMaterial}
+            label="Mentor"
+            onChange={InsertData}
+            value={SavedData && SavedData.cohorte}
+          />
+          <br />
+        </div>
+        <div className="form-group col-md-6">
+        <select
+          type="select"
+          className="form-control"
+          name="estado"
+          onChange={InsertData}
+          value={SavedData && SavedData.MentorAssignment}
+          aria-label="Default select example"
+        >
+          <option value="0" selected="">
+            Estado
+          </option>
+          <option value="Habilitado">Habilitado</option>
+          <option value="Masculino">Deshabilitado</option>
+        </select>
         </div>
       </div>
       <br />

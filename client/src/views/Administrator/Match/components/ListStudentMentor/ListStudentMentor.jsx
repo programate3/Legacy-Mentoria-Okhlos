@@ -1,5 +1,10 @@
 import style from "./ListStudentMentor.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { faEdit, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
+
 export default function ListStudentMentor(props) {
   const { students, mentors, done, match, calculateMatch } = props;
 
@@ -84,6 +89,7 @@ export default function ListStudentMentor(props) {
                   <th>Apellidos Estudiante</th>
                   <th>Nombres Mentor</th>
                   <th>Apellidos Mentor</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -95,11 +101,31 @@ export default function ListStudentMentor(props) {
                       <td>{e.lastNameEstudent}</td>
                       <td>{e.nameMentor}</td>
                       <td>{e.lastNameMentor}</td>
+                      <td>
+                        <div className={style.containerbuttonactions}>
+                          <button
+                            id={style.update}
+                            /* onClick={() => openedClosedModalVer()} */
+                          >
+                            <FontAwesomeIcon icon={faUserPlus} />
+                          </button>
+
+                          <button
+                            id={style.update}
+                            /* onClick={() => openedClosedModalVer()} */
+                          >
+                            <FontAwesomeIcon icon={faEdit} />
+                          </button>
+                        </div>
+                      </td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
+          </div>
+          <div className={style.containerbutton}>
+            <button>Confirmar Match</button>
           </div>
         </div>
       )}
