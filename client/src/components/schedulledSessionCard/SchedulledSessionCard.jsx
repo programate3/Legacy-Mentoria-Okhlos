@@ -36,7 +36,7 @@ const SchedulledSessionCard = ({ numSession, startDate, endDate, id }) => {
           {`Sesión ${numSession} ha sido habilitada`}
         </h3>
         <h4 className={styles.subtitles}>
-          Rango de fechas para agendar tu sesión de mentoria
+          
         </h4>
         <h4 className={styles.subtitles}>Fecha inicial</h4>
         <p className={styles.info}>{startDate}</p>
