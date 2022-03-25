@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Button, TextField } from '@material-ui/core';
 import Axios from 'axios';
 
-import { BiSearchAlt } from 'react-icons/bi';
 
 const baseUrl = 'http://localhost:3001';
 
@@ -315,13 +314,16 @@ const CrudMentor = () => {
 
 	return (
 		<div className={styles.container}>
-			{/*title and add button*/}
-			<SearchContainer
-				h1={'TABLA CONTROL DE MENTORES '}
-				placeholder={' Buscar Mentor'}
-				button={'Insertar Mentor'}
-				onClick={() => openedClosedModalInsertar()}
-			/>
+			<h1>TABLA CONTROL MENTORES</h1>
+		 <div className={styles.header}>
+          <input type="search" placeholder="Busca un Mentor" />
+          <button onClick={() => openedClosedModalInsertar()}>
+            Insertar Mentor
+          </button>
+
+          <button>Insertar SVC</button>
+          <button>Descargar SVC</button>
+        </div>
 
 			{/*mapping the yellow row data*/}
 			<div class={styles.containerTable}>

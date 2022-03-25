@@ -3,7 +3,12 @@ import React from 'react';
 
 const WelcomeAdmi = () => {
   return (
+    
     <div>
+      <br />
+      <br />
+      <br />
+      <br />
       <h1 className="barnav">Bienvenidos Admininistradores</h1>
       <div className="all">
         <div className="intro">

@@ -28,8 +28,8 @@ h2 {
   padding: 10px 0;
 }
 
-table {
-  width: 92vw;
+.table {
+  width: 95vw;
   margin: 20px auto;
   overflow: scroll;
   border: none;
@@ -64,6 +64,7 @@ tbody tr:hover{
 
 .table td {
   padding: 8px 0px 8px 20px;
+  border-bottom: 1px solid #000000;
 }
 
 button {
@@ -78,21 +79,29 @@ button:hover {
   color: #ffcc02;
 }
 
-@media screen and (max-width: 320px) {
-  .table {
-    display: block;
-    overflow-x: auto;
-  }
-}
 
-@media only screen and (max-width: 700px) {
+
+@media only screen and (max-width: 800px) {
   .buttonSelect {
     font-size: 16px;
+  }
+  .container {
+    padding-top: 15%;
   }
 }
 
 @media only screen and (max-width: 400px) {
   .buttonSelect {
     font-size: 14px;
+  }
+  .container {
+    padding-top: 25%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .table {
+    display: block;
+    overflow-x: auto;
   }
 }

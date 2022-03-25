@@ -6,17 +6,15 @@
 	padding-top: 10%;
 }
 
-@media screen and (max-width: 320px) {
-	.table {
-		display: block;
-		overflow-x: auto;
-	}
-	.modal h3 {
-		color: #000000;
-		text-align: center;
-		font-size: 20px;
-	}
-}
+.header{
+	display: flex;
+	justify-content: space-around;
+	width: 98%;
+	margin: 20px auto;
+	align-items: center;
+   
+  }
+  
 
 .column {
 	display: flex;
@@ -56,11 +54,12 @@
 	width: 100%;
 	display: flex;
 	justify-content: left;
-	margin-left: 18px;
+	
 }
 
 .table td {
 	padding: 8px 0px 8px 20px;
+	border-bottom: 1px solid #000000;
 }
 tbody tr:hover {
 	background-color: #cccccc;
@@ -120,6 +119,7 @@ button {
 	color: #000000;
 	text-align: center;
 	font-size: 28px;
+	font-family: Gilroy-ExtraBold;
 }
 
 .modal button {
@@ -131,6 +131,8 @@ button {
 	box-shadow: 3px 3px 5px #a0a0a0;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	
 }
 
 .modal button:hover {
@@ -142,7 +144,20 @@ button {
 	box-shadow: 3px 3px 5px #a0a0a0;
 	display: flex;
 	justify-content: center;
+	
 }
+@media screen and (max-width: 800px) {
+	.header{
+		display: flex;
+		flex-direction: column;
+		width: 98%;
+		margin: auto;
+		align-items: center;
+	   
+	  }
+	}
+
+
 
 @media screen and (max-width: 600px) {
 	.modal {
@@ -152,5 +167,23 @@ button {
 		color: #000000;
 		text-align: center;
 		font-size: 24px;
+	}
+
+	.container{
+		padding-top: 15%;
+	}
+
+	
+}
+
+@media screen and (max-width: 320px) {
+	.table {
+		display: block;
+		overflow-x: auto;
+	}
+	.modal h3 {
+		color: #000000;
+		text-align: center;
+		font-size: 20px;
 	}
 }

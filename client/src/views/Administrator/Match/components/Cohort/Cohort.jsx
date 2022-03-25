@@ -25,20 +25,39 @@ export default function Cohort(props) {
     }
   ]
 
+  const programa =[
+	  { 
+		  value: "Bootcamp Prográmate",
+		  label: "Bootcamp Prográmate"
+	},
+
+	 { 
+		  value: "Administración de empresas",
+		  label: "Administración de empresas"
+	}
+  ]
+
 	return (
 		<div className={style.contenedor}>
 			<div className={style.text}>
-				<h4 >Selecciona la cohorte para realizar el Match.</h4>
+				<h4 >Seleccione la cohorte  y el programa para realizar el Match.</h4>
 			</div>
 			<div className={style.cardSelect}>
 			
 				{
 					<>
-						<h5>Selecciona una opción</h5>
+						<h5>Seleccione las opciones.</h5>
 					
 						<Select
 							name="cohorte"
 							options={cohorte}
+							onChange={handleTypeSelect}
+						/>
+						<br />
+
+						<Select
+							name="programa"
+							options={programa}
 							onChange={handleTypeSelect}
 						/>
 						<br />
