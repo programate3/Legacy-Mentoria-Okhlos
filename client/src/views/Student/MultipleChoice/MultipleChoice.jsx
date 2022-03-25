@@ -3,7 +3,7 @@ import Styles from './MultipleChoice.module.css'
 import Card from '../../../components/Card/Card'
 import Select from 'react-select'
 import axios from 'axios'
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -110,7 +110,7 @@ const MultipleChoice = () => {
         .post(`${baseUrl}/api/studentsPerfil-control-update/${idStudent}`, { interestsStudent: userinterestsStudent })
       navigate('/thanks-student')
     } else {
-      swal('Por favor', 'Selecciona 3 intereses', 'info')
+      Swal.fire('Por favor', 'Selecciona 3 intereses', 'info')
     }
 
   }

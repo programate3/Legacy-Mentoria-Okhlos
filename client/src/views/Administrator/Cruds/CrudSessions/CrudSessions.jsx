@@ -1,58 +1,64 @@
 import { useState, useEffect } from 'react';
 import styles from './CrudSessions.module.css';
-import Table from '../../../../components/Table/Table';
 import SearchContainer from '../../../../components/SearchContainer/SearchContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faEdit,
-	faTrashAlt,
-	faPlusSquare,
-} from '@fortawesome/free-solid-svg-icons';
+import {faEdit, faUserPlus} from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
-import { Modal, Button, TextField } from '@material-ui/core';
+import { Modal, TextField } from '@material-ui/core';
 import axios from 'axios';
+
+import Swal from 'sweetalert2';
+import zIndex from '@material-ui/core/styles/zIndex';
 
 
 const Articles=[{
-  IdEstudiante:"id Estudiante" ,
-  Estudiante:"Estudiante",
-  FechaDiligenciamiento  :"Fecha Diligenciamiento",
-  SesiónN:"Sesión N°" 
+  Titulo:"Título" ,
+  Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalización",
+  Descripcion:"Descripción",
+  Estado:"Estado",
+  
 }]
 /* toca conectar esto con la base de datos */
 const Database=[{
-  IdEstudiante:"30" ,
-  Estudiante:"Estudiante",
-  FechaDiligenciamiento  :"Fecha Diligenciamiento",
-  SesiónN:"Sesión N°"
+	Titulo:"Titulo",
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
+	Descripcion:"Descripcion",
+	Estado:"Estado",
 },
 {
-  IdEstudiante:"id Estudiante" ,
-  Estudiante:"Estudiante",
-  FechaDiligenciamiento  :"Fecha Diligenciamiento",
-  SesiónN:"Sesión N°"
+	Titulo:"Titulo" ,
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
+	Descripcion:"Descripcion",
+	Estado:"Estado",
 },
 {
-  IdEstudiante:"id Estudiante" ,
-  Estudiante:"Estudiante",
-  FechaDiligenciamiento  :"Fecha Diligenciamiento",
-  SesiónN:"Sesión N°"
+	Titulo:"Titulo" ,
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
+	Descripcion:"Descripcion",
+	Estado:"Estado",
 },
 {
-  IdEstudiante:"id Estudiante" ,
-  Estudiante:"Estudiante",
-  FechaDiligenciamiento  :"Fecha Diligenciamiento",
-  SesiónN:"Sesión N°"
+	Titulo:"Titulo" ,
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
+	Descripcion:"Descripcion",
+	Estado:"Estado",
 },
 {
-  IdEstudiante:"id Estudiante" ,
-  Estudiante:"Estudiante",
-  FechaDiligenciamiento  :"Fecha Diligenciamiento",
-  SesiónN:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus sapiente iure assumenda at delectus id nobis explicabo sunt, in nihil veritatis omnis? Repellat alias ex est voluptatum rem. Voluptas, perferendis."
+	Titulo:"Titulo" ,
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
+	Descripcion:"Descripcion",
+	Estado:"Estado",
 }
 ]
 
-//Modal styles
+
+//Modal styles 
 const useStyles = makeStyles((theme) => ({
 	modal: {
 		position: 'absolute',
@@ -89,6 +95,7 @@ const CrudSessions = () => {
 	const [data, setData] = useState([]);
 	const Styles = useStyles();
 	const [modalinsertar, setmodalinsertar] = useState(false);
+	const [modaleditar, setmodaleditar] = useState(false);
 	//Insert saved module data
 	const [SavedData, setSavedData] = useState({
 		id: '',
@@ -139,55 +146,203 @@ useEffect(async()=>{
 	const openedClosedModalInsertar = () => {
 		setmodalinsertar(!modalinsertar);
 	};
+	//one-button boolean function
+	const openedClosedModalEditar = () => {
+		setmodaleditar(!modaleditar);
+	};
+
+	//---------------------------------------alert from add--------------------------------------------------
+	const alertAdd= () => {
+		Swal.fire({
+			showCloseButton: true,
+			closeButtonText: 'X',
+			title: '¿Desea insertar los datos?',
+			icon: 'question',
+			showCancelButton: true,
+			cancelButtonText: 'No',
+			confirmButtonColor: '#ffcc02',
+			cancelButtonColor: '#000000',
+			confirmButtonText: 'Si'
+			
+		  }).then((result) => {
+			if (result.isConfirmed) {
+			  Swal.fire({
+				showCloseButton: true,
+				title: '¡Listo!',
+				text: "Añadido con éxito",
+				icon: 'success',
+				showConfirmButton: true,
+				confirmButtonColor: '#ffcc02',
+				confirmButtonText: 'Ok',
+				
+
+			  })
+			}
+		
+			
+		  })
+};
+//-----------------------------------------------alert from edit-------------------------------------------
+	const mostrarAlerta = () => {
+		Swal.fire({
+			showCloseButton: true,
+			closeButtonText: 'X',
+			title: '¿Desea guardar los cambios?',
+			icon: 'question',
+			showCancelButton: true,
+			cancelButtonText: 'No',
+			confirmButtonColor: '#ffcc02',
+			cancelButtonColor: '#000000',
+			confirmButtonText: 'Si'
+			
+		  }).then((result) => {
+			if (result.isConfirmed) {
+			  Swal.fire({
+				showCloseButton: true,
+				title: '¡Listo!',
+				text: "Cambios guardados con éxito",
+				icon: 'success',
+				showConfirmButton: true,
+				confirmButtonColor: '#ffcc02',
+				confirmButtonText: 'Ok',
+				
+
+			  })
+			}
+		
+			
+		  })
+};
 
 	//Modal structure Insertar
 
 	const bodyInsertar = (
-		<div className={Styles.modal}>
-			<h3 className={Styles.h3}>EDITAR UNA SESIÓN</h3>
+		<div className={styles.modal}>
+			<h3 className={styles.h3}>AÑADIR UNA SESION</h3>
 			<TextField
-				name="id"
+				name="Titulo"
 				className={Styles.inputMaterial}
-				label="Id Estudiante"
+				label="Titulo"
 				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
+				value={SavedData && SavedData.Titulo}
 			/>
 			<br />
 			<TextField
-				name="Nombres"
+			    type="date"
+				name="Fecha de inicio"
 				className={Styles.inputMaterial}
-				label="Estudiante"
+				label="Fecha de inicio"
 				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
+				value={SavedData && SavedData.Fechadeinicio}
 			/>
 			<br />
 			<TextField
-				name="Apellidos"
+			    type="date"
+				name="Fecha de finalizacion"
 				className={Styles.inputMaterial}
-				label="Fecha Diligenciamiento"
+				label="Fecha de finalización"
 				onChange={InsertData}
-				value={SavedData && SavedData.Nombres}
+				value={SavedData && SavedData.Fechadefinalizacion}
 			/>
 			<br />
 			<TextField
+				name="Descripcion"
+				className={Styles.inputMaterial}
+				label="Descripción"
+				onChange={InsertData}
+				value={SavedData && SavedData.Descripcion}
+			/>
+			<br />
+			{/* <TextField
 				name="Género"
 				className={Styles.inputMaterial}
-				label="Sesión N°"
+				label="Estado"
 				onChange={InsertData}
 				value={SavedData && SavedData.Nombres}
-			/>
+			/> */}
 			<br />
+			<select type='text'>
+			    <option value="0">Estado</option>
+				<option value="Habilitado">Habilitado</option>
+				<option value="Deshabilitado">Deshabilitado</option>
+
+			</select>
 			<br />
-			<div className={Styles.button}>
-				<Button className={Styles.Button} /* onClick={()=>petitionPost()}*/>
+			<div align="center" >
+				<button className={styles.button} onClick={() => alertAdd() & openedClosedModalInsertar()}/* onClick={()=>petitionPost()}*/>
 					Insertar
-				</Button>
-				<Button
-					className={Styles.Button}
+				</button>
+				<button
+					className={styles.button}
 					onClick={() => openedClosedModalInsertar()}
 				>
 					Cancelar
-				</Button>
+				</button>
+			</div>
+		</div>
+	);
+	const bodyEditar = (
+		<div className={styles.modal}>
+			<h3 className={styles.h3}>EDITAR SESIÓN</h3>
+			<TextField
+				name="Titulo"
+				className={Styles.inputMaterial}
+				label="Titulo"
+				onChange={InsertData}
+				value={SavedData && SavedData.Titulo}
+			/>
+			<br />
+			<TextField
+			     type="date"
+				name="Fecha de inicio"
+				className={Styles.inputMaterial}
+				label="Fecha de inicio"
+				onChange={InsertData}
+				value={SavedData && SavedData.Fechadeinicio}
+			/>
+			<br />
+			<TextField
+			    type="date"
+				name="Fecha de finalizacion"
+				className={Styles.inputMaterial}
+				label="Fecha de finalización"
+				onChange={InsertData}
+				value={SavedData && SavedData.Fechadefinalizacion}
+			/>
+			<br />
+			<TextField
+				name="Descripcion"
+				className={Styles.inputMaterial}
+				label="Descripción"
+				onChange={InsertData}
+				value={SavedData && SavedData.Descripcion}
+			/>
+			<br />
+			{/* <TextField
+				name="Género"
+				className={Styles.inputMaterial}
+				label="Estado"
+				onChange={InsertData}
+				value={SavedData && SavedData.Nombres}
+			/> */}
+			<br />
+			<select type='text'>
+			    <option value="0">Estado</option>
+				<option value="Habilitado">Habilitado</option>
+				<option value="Deshabilitado">Deshabilitado</option>
+
+			</select>
+			<br />
+			<div align="center" >
+				<button className={styles.button} onClick={() => mostrarAlerta() & openedClosedModalEditar()}>
+					Guardar cambios 
+				</button>
+				<button
+					className={styles.button}
+					onClick={() => openedClosedModalEditar()}
+				>
+					Cancelar
+				</button>
 			</div>
 		</div>
 	);
@@ -195,51 +350,66 @@ useEffect(async()=>{
 	return (
 		<div className={styles.container}>
 			<SearchContainer
-				h1={'TABLA DE CONTROL DE SESIONES '}
-				placeholder={'Busca un Estudiante'}
+				h1={'DETALLE DE SESIONES '}
+				placeholder={'Buscar Sesión'}
+				button={'Insertar Sesión'}
 				onClick={() => openedClosedModalInsertar()}
 			/>
-			<Table
-				th={Articles.map((e) => {
+			<div class={styles.containerTable}>
+				<table className={styles.table}>
+					<thead>
+				{Articles.map((e) => {
 					return (
-						<tr className={styles.column}>
-							<th>{e.IdEstudiante}</th>
-							<th>{e.Estudiante}</th>
-							<th>{e.FechaDiligenciamiento}</th>
-							<th>{e.SesiónN}</th>
-							<th>Editar</th>
-							<th>Eliminar</th>
+						<tr>
+							
+							<th>{e.Titulo}</th>
+							<th>{e.Fechadeinicio}</th>
+							<th>{e.Fechadefinalizacion}</th>
+							<th>{e.Descripcion}</th>
+							<th>{e.Estado}</th>
+							<th>Acciones</th>
+							
 						</tr>
 					);
 				})}
-				th2={Database.map((e) => {
+
+					</thead>
+					<tbody>
+				{Database.map((e) => {
 					return (
-						<tr className={styles.row}>
-							<td className={styles.rowone}>{e.IdEstudiante}</td>
-							<td className={styles.rowone}>{e.Estudiante}</td>
-							<td className={styles.rowone}> {e.FechaDiligenciamiento}</td>
-							<td className={styles.rowone}>{e.SesiónN}</td>
+						<tr>
+							<td>{e.Titulo}</td>
+							<td >{e.Fechadeinicio}</td>
+							<td >{e.Fechadefinalizacion}</td>
+							<td > {e.Descripcion}</td>
+							<td >{e.Estado}</td>
 
 							<>
 								<td>
-									<button className={styles.update}>
+								<div className={styles.containerbutton}>
+									<button id={styles.update} onClick={() => openedClosedModalEditar()}>
 										<FontAwesomeIcon icon={faEdit} />
 									</button>
-								</td>
-								<td>
-									<button className={styles.delete}>
+									{/* <button id={styles.delete}>
 										<FontAwesomeIcon icon={faTrashAlt} />
-									</button>
+									</button> */}
+									</div>
 								</td>
+								
 							</>
 						</tr>
 					);
 				})}
-			/>
-
+				</tbody>
+			</table>
+			</div>
 			<Modal open={modalinsertar} onClose={openedClosedModalInsertar}>
 				{bodyInsertar}
 			</Modal>
+			<Modal open={modaleditar} onClose={openedClosedModalEditar}>
+				{bodyEditar}
+			</Modal>
+			
 		</div>
 	);
 };

@@ -25,6 +25,7 @@ import FirstStudentForm from './views/Student/Form/FirstStudentForm';
 import FirstStudentInform from './views/Student/Inform/FirstStudentInform';
 import MultipleChoice from './views/Student/MultipleChoice/MultipleChoice';
 import WelcomeCard from './components/welcomeCard/WelcomeCard';
+import WelcomeAdmi from './views/Administrator/PanelAdmin/WelcomeAdmi';
 import PrincipalView from './views/Principal/PrincipalView';
 import MatchForm from './views/Administrator/Match/MatchForm';
 import AsignedSessions from './views/Mentor/AsignedSessions/AsignedSessions';
@@ -40,6 +41,7 @@ import CrudStudents from './views/Administrator/Cruds/CrudStudents/CrudStudents'
 import CrudSessions from './views/Administrator/Cruds/CrudSessions/CrudSessions';
 import CrudSessionsDetail from './views/Administrator/Cruds/CrudSessionDetail/CrudSessionDetail';
 import MentorAssigned from './views/Student/MentroAssigned/MentorAssigned';
+import Welcome from './views/Mentor/Welcome';
 
 // import WelcomeAdmin from './views/Administrator/PanelAdmin/WelcomeAdmi';
 function App() {
@@ -116,17 +118,13 @@ function App() {
 			{/* <Navbar /> */}
 			<NavAdmin />
 			<Routes>
-				<Route
-					path="/"
-					element={isLogged ? <StudentSession /> : <Login />}
-					exact
+        {/* administrador */}
+				<Route path="/" element={/* isLogged ? <StudentSession /> :  */<Login />} exact/>
+				<Route path="/forgot_password" element={/* isLogged ? <WelcomeUser /> : */ <ForgotPassword />} exact/>
+        {/* este es el welcome repetido de mentor (cambiado por welcomeadmi)*/}
+        <Route path="/welcome-user"
+					element={/* interest ? <Thanks /> : <MultipleChoice /> */ <WelcomeAdmi/> }
 				/>
-				<Route
-					path="/forgot_password"
-					element={isLogged ? <WelcomeUser /> : <ForgotPassword />}
-					exact
-				/>
-
 				{/* others */}
 				<Route path="/principal-view" element={<PrincipalView />} />
 
@@ -136,6 +134,8 @@ function App() {
 				{/* <Route path="/welcome-user"
 					element={interest ? <Thanks /> : <MultipleChoice />}
 				/> */}
+				{/* aqui deberia estar el home */}
+        
 				<Route path="/thanks-student" element={<Thanks />} />
 				<Route path="/mentor-assigned" element={<MentorAssigned/>}/>
 
