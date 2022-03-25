@@ -4,7 +4,7 @@ const QuestionForm = require('../db/models/AnswerBank')
 const ViewStudentRouter = require('express').Router()
 const QuestionFormRouter = require('express').Router()
 
-// get method for view student of mentor collection
+// get method for view student of  collection
 ViewStudentRouter.get('/', async (request, response) => {
   const viewStudent = await ViewStudent.find({}).populate(
     'user_id',
