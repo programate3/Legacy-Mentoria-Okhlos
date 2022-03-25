@@ -4,7 +4,7 @@ import axios from 'axios'
 import { showErrMsg, showSuccessMsg } from '../notification/Notification'
 import { dispatchLogin } from '../../redux/actions/authActions'
 import { useDispatch } from 'react-redux'
-import './Login.css'
+import './login.css'
 import Input from '../Input/Input'
 import logo from '../assets/images/academy.png'
 

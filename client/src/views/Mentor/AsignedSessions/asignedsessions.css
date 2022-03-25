@@ -1,7 +1,10 @@
 :root {
   --green:#92C149;
   --yellow:#FFCC02;
-  --yellow: #D7D7D7;
+  --yellow: #ffffff;
+}
+.SessionsBoard_board__1PiRf{
+  background: #ffffff;
 }
 .studentsCardContainer{
   display:flex;
@@ -16,8 +19,8 @@
   min-width: 550px;
   max-height: 750px;
   min-height: 700px; */
-  width: 90vw;
-  background-color: #fefefe;
+  width: 70vw;
+  background-color: #FFCC02;
   display: flex;
   flex-direction: column;
   align-items: center;

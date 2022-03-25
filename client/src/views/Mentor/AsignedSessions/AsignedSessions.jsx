@@ -1,5 +1,7 @@
 
 import './asignedsessions.css'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function AsignedSessions () {
 
@@ -33,6 +35,7 @@ function AsignedSessions () {
       <p>Edad: {age}</p>
       <label>Intereses:</label>
       <p>{interest}</p>
+      </div>
       <div className='session'>
         <label>Sesión 1 agendada</label>
         <label>El encuentro con tu mentor será sel día </label>
@@ -46,7 +49,7 @@ function AsignedSessions () {
         <label>!Recuerda ingresar al formulario y enviar tus comentarios despues de la sesión!
         </label>
       </div>
-    </div>
+    
     </div>
   )
 }
