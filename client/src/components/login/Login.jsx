@@ -4,9 +4,9 @@ import axios from 'axios'
 import { showErrMsg, showSuccessMsg } from '../notification/Notification'
 import { dispatchLogin } from '../../redux/actions/authActions'
 import { useDispatch } from 'react-redux'
-import './login.css'
+import './Login.css'
 import Input from '../Input/Input'
-import logo from '../assets/images/programate-fblanco.png'
+import logo from '../assets/images/academy.png'
 
 const Login = () => {
   //Inicializo hooks
@@ -68,16 +68,19 @@ const Login = () => {
             {/* <label htmlFor='email'>Email Address</label> */}
             <Input
               label='Correo'
-              placeholder='Luis@hotmail.com'
+              placeholder='ejemplo@ejemplo.com'
               name='email'
+              type='email' required
               value={email}
               onChange={handleChangeInput}
+              
             />
 
             <Input
-              type='Password'
+              
               label='Contraseña'
               placeholder='********'
+              type='password'
               name='password'
               value={password}
               onChange={handleChangeInput}
@@ -85,7 +88,7 @@ const Login = () => {
           </div>
 
           <button className='button-login' type='submit'>
-            INGRESAR
+            Ingresar 
           </button>
         </form>
       </div>

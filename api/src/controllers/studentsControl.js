@@ -2,7 +2,7 @@ const getAllStudentsRouter = require('express').Router()
 
 const getOneStudentRouter = require('express').Router()
 
-const getAssiMentorRouter = require('express').Router()
+const getAssiRouter = require('express').Router()
 
 const postUserRouter = require('express').Router()
 
@@ -54,10 +54,10 @@ getOneStudentRouter.get('/:id', async (req, res) => {
   res.json(getOneStudent)
 })
 
-getAssiMentorRouter.get('/:id', async (req, res)=>{
-  const getAssiMentor = await Profile.find({ user_id: req.params.id }, {assignedMentor: 1})
+getAssiRouter.get('/:id', async (req, res)=>{
+  const getAssi = await Profile.find({ user_id: req.params.id }, {assigned: 1})
 
-  res.json(getAssiMentor)
+  res.json(getAssi)
 })
 
 const validateEmail = email => {
@@ -70,8 +70,8 @@ postUserRouter.post('/', async (req, res) => {
     gender: req.body.gender,
     actualAge: req.body.actualAge,
     interestsStudent: req.body.interestsStudent,
-    assignedMentor: req.body.assignedMentor,
-    interestsMentor: req.body.interestsMentor
+    assigned: req.body.assigned,
+    interests: req.body.interests
   }
   // const gender = (req.body.gender);
   // const actualAge = (req.body.actualAge)
@@ -118,8 +118,8 @@ postUserRouter.post('/', async (req, res) => {
         gender: profile.gender,
         actualAge: profile.actualAge,
         interestsStudent: profile.interestsStudent,
-        assignedMentor: profile.assignedMentor,
-        interestsMentor: profile.interestsMentor
+        assigned: profile.assigned,
+        interests: profile.interests
       })
       res.json(dbProfile)
     })
@@ -171,7 +171,7 @@ updatedProfileRouter.post('/:id', async (req, res) => {
     gender: req.body.gender,
     actualAge: req.body.actualAge,
     interestsStudent: req.body.interestsStudent,
-    assignedMentor: req.body.assignedMentor
+    assigned: req.body.assigned
   }
 
   const idprofile = await Profile.find(
@@ -188,7 +188,7 @@ updatedProfileRouter.post('/:id', async (req, res) => {
         gender: profile.gender,
         actualAge: profile.actualAge,
         interestsStudent: profile.interestsStudent,
-        assignedMentor: profile.assignedMentor
+        assigned: profile.assigned
       }
     },
     function (error, info) {
@@ -219,7 +219,7 @@ getInterestStudent.get('/:id', async (req, res) => {
 getInfoStudent.get('/', async (req, res) => {
   try {
     const infoProfile = await Profile
-      .find({}, { actualAge: 1, assignedMentor: 1, actualAge: 1, gender: 1 ,assignedMentor: 1, interestsStudent: 1 })
+      .find({}, { actualAge: 1, assigned: 1, actualAge: 1, gender: 1 ,assigned: 1, interestsStudent: 1 })
       .populate('user_id', { name: 1, email: 1, middleName: 1, lastName: 1, secondSurname: 1, contactNumber: 1, state: 1, program : 1, cohorte: 1, role: 1  })
       
     const infoUser = await User
@@ -247,7 +247,7 @@ getInfoStudent.get('/', async (req, res) => {
 module.exports = {
   getAllStudentsRouter,
   getOneStudentRouter,
-  getAssiMentorRouter,
+  getAssiRouter,
   updatedUserRouter,
   postUserRouter,
   updatedProfileRouter,

@@ -19,13 +19,8 @@
   flex-direction: row;
   justify-content: center;
   background-color: #010101;
-  
-  
-  
- }
- a{
-   background-color: rgba(0, 255, 255, 0);
-   
+  padding: 10px;
+  z-index: 5;
  }
  .logoSocialMedia {
    
