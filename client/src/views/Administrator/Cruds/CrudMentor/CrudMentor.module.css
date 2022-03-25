@@ -108,7 +108,7 @@ button {
 .modal {
 	max-width: 600px;
 	background-color: #ffffff;
-	margin: 80px auto;
+	margin: 10px auto;
 	align-items: center;
 	padding: 30px;
 	color: #000000;
@@ -146,6 +146,11 @@ button {
 	justify-content: center;
 	
 }
+
+.modal select{
+	margin-top:10px;
+}
+
 @media screen and (max-width: 800px) {
 	.header{
 		display: flex;
@@ -155,6 +160,7 @@ button {
 		align-items: center;
 	   
 	  }
+
 	}
 
 

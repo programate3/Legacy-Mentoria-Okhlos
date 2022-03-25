@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import styles from './CrudMentor.module.css';
-import SearchContainer from '../../../../components/SearchContainer/SearchContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt,faEye } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
-import { Modal, Button, TextField } from '@material-ui/core';
+import { Modal, TextField } from '@material-ui/core';
 import Axios from 'axios';
 
 
@@ -18,11 +17,14 @@ const Articles = [
 		Apellidos: 'Apellidos',
 		Edad: 'Edad',
 		Género: 'Género',
+		Teléfono: 'Teléfono',
+		Email: 'Email',
 		Intereses: 'Intereses ',
 		Programa: 'Programa ',
 		Carrera: ' Carrera  ',
 		Empresa: ' Empresa  ',
 		AsignaciónEst: 'Asignación Est',
+		estado: 'Estado',
 	},
 ];
 //Table data
@@ -33,11 +35,14 @@ const Database = [
 		Apellidos: 'Apellidos',
 		Edad: 'Edad',
 		Género: 'Género',
+		Teléfono: 'Teléfono',
+		Email: 'Email',
 		Intereses: 'Intereses ',
 		Programa: 'Programa ',
 		Carrera: ' Carrera  ',
 		Empresa: ' Empresa  ',
 		AsignaciónEst: 'Asignación Est',
+		estado: 'Estado',
 	},
 	{
 		Id: 'id',
@@ -50,6 +55,7 @@ const Database = [
 		Carrera: ' Carrera  ',
 		Empresa: ' Empresa  ',
 		AsignaciónEst: 'Asignación Est',
+		estado: 'Estado',
 	},
 	{
 		Id: 'id',
@@ -62,6 +68,7 @@ const Database = [
 		Carrera: ' Carrera  ',
 		Empresa: ' Empresa  ',
 		AsignaciónEst: 'Asignación Est',
+		estado: 'Estado',
 	},
 	{
 		Id: 'id',
@@ -74,6 +81,7 @@ const Database = [
 		Carrera: ' Carrera  ',
 		Empresa: ' Empresa  ',
 		AsignaciónEst: 'Asignación Est',
+		estado: 'Estado',
 	},
 	{
 		Id: 'id',
@@ -86,6 +94,7 @@ const Database = [
 		Carrera: ' Carrera  ',
 		Empresa: ' Empresa  ',
 		AsignaciónEst: 'Lorem  vitae.',
+		estado: 'Estado',
 	},
 	{
 		Id: 'id',
@@ -98,6 +107,7 @@ const Database = [
 		Carrera: ' Carrera  ',
 		Empresa: ' Empresa  ',
 		AsignaciónEst: 'Lorem  vitae.',
+		estado: 'Estado',
 	},
 ];
 
@@ -138,6 +148,8 @@ const CrudMentor = () => {
 	const [data, setData] = useState([]);
 	const Styles = useStyles();
 	const [modalinsertar, setmodalinsertar] = useState(false);
+	const [modaleditar, setmodaleditar] = useState(false);
+	const [modalver, setmodalver] = useState(false);
 	//Insert saved module data
 	const [SavedData, setSavedData] = useState({
 		id: '',
@@ -145,11 +157,14 @@ const CrudMentor = () => {
 		Apellidos: '',
 		Edad: '',
 		Género: '',
+		Teléfono: '',
+		Email: '',
 		Intereses: '',
 		Programa: '',
 		Carrera: '',
 		Empresa: '',
 		AsignaciónEst: '',
+		estado: '',
 	});
 	//Function to insert the data written in the module.
 	const InsertData = (e) => {
@@ -191,6 +206,14 @@ const CrudMentor = () => {
 		setmodalinsertar(!modalinsertar);
 	};
 
+	const openedClosedModalEditar = () => {
+		setmodaleditar(!modaleditar);
+	};
+
+	const openedClosedModalVer = () => {
+		setmodalver(!modalver);
+	};
+
 	//Modal structure Insertar
 
 	const bodyInsertar = (
@@ -213,19 +236,18 @@ const CrudMentor = () => {
 						className={Styles.inputMaterial}
 						label="Apellido"
 						onChange={InsertData}
-						value={SavedData && SavedData.Nombres}
+						value={SavedData && SavedData.Apellidos}
 					/>
 				</div>
 			</div>
 			<div className="row">
 				<div className="form-group col-md-6">
-					<TextField
-						name="Género"
-						className={Styles.inputMaterial}
-						label="Género"
-						onChange={InsertData}
-						value={SavedData && SavedData.Nombres}
-					/>
+					  <select type="select" className="form-control"  name="Género" onChange={InsertData} value={SavedData && SavedData.Género}  aria-label="Default select example">    
+                      <option value="0" selected="">Género</option>
+                      <option value="Femenino">Femenino</option>
+                      <option value="Masculino">Masculino</option>
+                      <option value="Otro">Otro</option>
+                </select>
 				</div>
 				<div className="form-group col-md-6">
 					<TextField
@@ -233,6 +255,7 @@ const CrudMentor = () => {
 						className={Styles.inputMaterial}
 						label="Edad"
 						onChange={InsertData}
+						value={SavedData && SavedData.Edad}
 					/>
 				</div>
 			</div>
@@ -243,6 +266,7 @@ const CrudMentor = () => {
 						className={Styles.inputMaterial}
 						label="Hijos"
 						onChange={InsertData}
+						value={SavedData && SavedData.Hijos}
 					/>
 				</div>
 				<div className="form-group col-md-6">
@@ -251,19 +275,18 @@ const CrudMentor = () => {
 						className={Styles.inputMaterial}
 						label="Intereses"
 						onChange={InsertData}
-						value={SavedData && SavedData.Nombres}
+						value={SavedData && SavedData.Intereses}
 					/>
 				</div>
 			</div>
 			<div className="row">
 				<div className="form-group col-md-6">
-					<TextField
-						name="Programa"
-						className={Styles.inputMaterial}
-						label="Programa"
-						onChange={InsertData}
-						value={SavedData && SavedData.Nombres}
-					/>
+				<select type="select" className="form-control"  name="Programa" onChange={InsertData} value={SavedData && SavedData.Programa}  aria-label="Default select example">    
+                      <option value="0" selected="">Programa</option>
+                      <option value="Bootcamp Prográmate">Bootcamp Prográmate</option>
+                      <option value="Administración de Empresas">Administración de Empresas</option>
+                      
+                </select>
 				</div>
 				<div className="form-group col-md-6">
 					<TextField
@@ -271,7 +294,7 @@ const CrudMentor = () => {
 						className={Styles.inputMaterial}
 						label="Carrera"
 						onChange={InsertData}
-						value={SavedData && SavedData.Nombres}
+						value={SavedData && SavedData.Carrera}
 					/>
 				</div>
 			</div>
@@ -282,7 +305,7 @@ const CrudMentor = () => {
 						className={Styles.inputMaterial}
 						label="Empresa"
 						onChange={InsertData}
-						value={SavedData && SavedData.Nombres}
+						value={SavedData && SavedData.Empresa}
 					/>
 				</div>
 				<div className="form-group col-md-6">
@@ -291,11 +314,40 @@ const CrudMentor = () => {
 						className={Styles.inputMaterial}
 						label="Asignación Est"
 						onChange={InsertData}
-						value={SavedData && SavedData.Nombres}
+						value={SavedData && SavedData.AsignaciónEst}
 					/>
 				</div>
 			</div>
-			<br></br>
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="email"
+						className={Styles.inputMaterial}
+						label="E-mail"
+						onChange={InsertData}
+						value={SavedData && SavedData.email}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="telefono"
+						className={Styles.inputMaterial}
+						label="Télefono"
+						onChange={InsertData}
+						value={SavedData && SavedData.telefono}
+					/>
+				</div>
+				</div>
+		
+			<div className="form-group col-md-6">
+					  <select type="select" className="form-control"  name="estado" onChange={InsertData} value={SavedData && SavedData.estado}  aria-label="Default select example">    
+                      <option value="0" selected="">Estado</option>
+                      <option value="Habilitado">Habilitado</option>
+                      <option value="Masculino">Deshabilitado</option>
+                      
+                </select>
+				</div>
+			
 			<br></br>
 
 			<div align="center">
@@ -312,6 +364,305 @@ const CrudMentor = () => {
 		</div>
 	);
 
+		//Modal structure Editar
+
+		const bodyEditar = (
+			<div className={styles.modal}>
+				<h3 className={styles.h3}>EDITAR MENTOR</h3>
+	
+				<div className="row">
+					<div className="form-group col-md-6">
+						<TextField
+							name="Nombres"
+							className={Styles.inputMaterial}
+							label="Nombre"
+							onChange={InsertData}
+							value={SavedData && SavedData.Nombres}
+						/>
+					</div>
+					<div className="form-group col-md-6">
+						<TextField
+							name="Apellidos"
+							className={Styles.inputMaterial}
+							label="Apellido"
+							onChange={InsertData}
+							value={SavedData && SavedData.Apellidos}
+						/>
+					</div>
+				</div>
+				<div className="row">
+					<div className="form-group col-md-6">
+						  <select type="select" className="form-control"  name="Género" onChange={InsertData} value={SavedData && SavedData.Género}  aria-label="Default select example">    
+						  <option value="0" selected="">Género</option>
+						  <option value="Femenino">Femenino</option>
+						  <option value="Masculino">Masculino</option>
+						  <option value="Otro">Otro</option>
+					</select>
+					</div>
+					<div className="form-group col-md-6">
+						<TextField
+							name="Edad"
+							className={Styles.inputMaterial}
+							label="Edad"
+							onChange={InsertData}
+							value={SavedData && SavedData.Edad}
+						/>
+					</div>
+				</div>
+				<div className="row">
+					<div className="form-group col-md-6">
+						<TextField
+							name="Hijos"
+							className={Styles.inputMaterial}
+							label="Hijos"
+							onChange={InsertData}
+							value={SavedData && SavedData.Hijos}
+						/>
+					</div>
+					<div className="form-group col-md-6">
+						<TextField
+							name="Intereses"
+							className={Styles.inputMaterial}
+							label="Intereses"
+							onChange={InsertData}
+							value={SavedData && SavedData.Intereses}
+						/>
+					</div>
+				</div>
+				<div className="row">
+					<div className="form-group col-md-6">
+					<select type="select" className="form-control"  name="Programa" onChange={InsertData} value={SavedData && SavedData.Programa}  aria-label="Default select example">    
+						  <option value="0" selected="">Programa</option>
+						  <option value="Bootcamp Prográmate">Bootcamp Prográmate</option>
+						  <option value="Administración de Empresas">Administración de Empresas</option>
+						  
+					</select>
+					</div>
+					<div className="form-group col-md-6">
+						<TextField
+							name="Carrera"
+							className={Styles.inputMaterial}
+							label="Carrera"
+							onChange={InsertData}
+							value={SavedData && SavedData.Carrera}
+						/>
+					</div>
+				</div>
+				<div className="row">
+					<div className="form-group col-md-6">
+						<TextField
+							name="Empresa"
+							className={Styles.inputMaterial}
+							label="Empresa"
+							onChange={InsertData}
+							value={SavedData && SavedData.Empresa}
+						/>
+					</div>
+					<div className="form-group col-md-6">
+						<TextField
+							name="AsignaciónEst"
+							className={Styles.inputMaterial}
+							label="Asignación Est"
+							onChange={InsertData}
+							value={SavedData && SavedData.AsignaciónEst}
+						/>
+					</div>
+				</div>
+				<div className="row">
+					<div className="form-group col-md-6">
+						<TextField
+							name="email"
+							className={Styles.inputMaterial}
+							label="E-mail"
+							onChange={InsertData}
+							value={SavedData && SavedData.email}
+						/>
+					</div>
+					<div className="form-group col-md-6">
+						<TextField
+							name="telefono"
+							className={Styles.inputMaterial}
+							label="Télefono"
+							onChange={InsertData}
+							value={SavedData && SavedData.telefono}
+						/>
+					</div>
+					</div>
+			
+				<div className="form-group col-md-6">
+						  <select type="select" className="form-control"  name="estado" onChange={InsertData} value={SavedData && SavedData.estado}  aria-label="Default select example">    
+						  <option value="0" selected="">Estado</option>
+						  <option value="Habilitado">Habilitado</option>
+						  <option value="Masculino">Deshabilitado</option>
+						  
+					</select>
+					</div>
+				
+				<br></br>
+	
+				<div align="center">
+					<button className={styles.button} /*onClick={()=>petitionPost()}*/>
+						Guardar Cambios
+					</button>
+					<button
+						className={styles.button}
+						onClick={() => openedClosedModalEditar()}
+					>
+						Cancelar
+					</button>
+				</div>
+			</div>
+		);
+
+
+		//Modal structure Ver
+
+	const bodyVer = (
+		<div className={styles.modal}>
+			<h3 className={styles.h3}>VER MENTOR</h3>
+
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="Nombres"
+						className={Styles.inputMaterial}
+						label="Nombre"
+						onChange={InsertData}
+						value={SavedData && SavedData.Nombres}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="Apellidos"
+						className={Styles.inputMaterial}
+						label="Apellido"
+						onChange={InsertData}
+						value={SavedData && SavedData.Apellidos}
+					/>
+				</div>
+			</div>
+			<div className="row">
+				<div className="form-group col-md-6">
+					  <select type="select" className="form-control"  name="Género" onChange={InsertData} value={SavedData && SavedData.Género}  aria-label="Default select example">    
+                      <option value="0" selected="">Género</option>
+                      <option value="Femenino">Femenino</option>
+                      <option value="Masculino">Masculino</option>
+                      <option value="Otro">Otro</option>
+                </select>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="Edad"
+						className={Styles.inputMaterial}
+						label="Edad"
+						onChange={InsertData}
+						value={SavedData && SavedData.Edad}
+					/>
+				</div>
+			</div>
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="Hijos"
+						className={Styles.inputMaterial}
+						label="Hijos"
+						onChange={InsertData}
+						value={SavedData && SavedData.Hijos}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="Intereses"
+						className={Styles.inputMaterial}
+						label="Intereses"
+						onChange={InsertData}
+						value={SavedData && SavedData.Intereses}
+					/>
+				</div>
+			</div>
+			<div className="row">
+				<div className="form-group col-md-6">
+				<select type="select" className="form-control"  name="Programa" onChange={InsertData} value={SavedData && SavedData.Programa}  aria-label="Default select example">    
+                      <option value="0" selected="">Programa</option>
+                      <option value="Bootcamp Prográmate">Bootcamp Prográmate</option>
+                      <option value="Administración de Empresas">Administración de Empresas</option>
+                      
+                </select>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="Carrera"
+						className={Styles.inputMaterial}
+						label="Carrera"
+						onChange={InsertData}
+						value={SavedData && SavedData.Carrera}
+					/>
+				</div>
+			</div>
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="Empresa"
+						className={Styles.inputMaterial}
+						label="Empresa"
+						onChange={InsertData}
+						value={SavedData && SavedData.Empresa}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="AsignaciónEst"
+						className={Styles.inputMaterial}
+						label="Asignación Estudiante"
+						onChange={InsertData}
+						value={SavedData && SavedData.AsignaciónEst}
+					/>
+				</div>
+			</div>
+			<div className="row">
+				<div className="form-group col-md-6">
+					<TextField
+						name="email"
+						className={Styles.inputMaterial}
+						label="E-mail"
+						onChange={InsertData}
+						value={SavedData && SavedData.email}
+					/>
+				</div>
+				<div className="form-group col-md-6">
+					<TextField
+						name="telefono"
+						className={Styles.inputMaterial}
+						label="Télefono"
+						onChange={InsertData}
+						value={SavedData && SavedData.telefono}
+					/>
+				</div>
+				</div>
+		
+			<div className="form-group col-md-6">
+					  <select type="select" className="form-control"  name="estado" onChange={InsertData} value={SavedData && SavedData.estado}  aria-label="Default select example">    
+                      <option value="0" selected="">Estado</option>
+                      <option value="Habilitado">Habilitado</option>
+                      <option value="Masculino">Deshabilitado</option>
+                      
+                </select>
+				</div>
+			
+			<br></br>
+
+			<div align="center">
+
+				<button
+					className={styles.button}
+					onClick={() => openedClosedModalVer()}
+				>
+					Cerrar
+				</button>
+			</div>
+		</div>
+	);
+
 	return (
 		<div className={styles.container}>
 			<h1>TABLA CONTROL MENTORES</h1>
@@ -321,8 +672,8 @@ const CrudMentor = () => {
             Insertar Mentor
           </button>
 
-          <button>Insertar SVC</button>
-          <button>Descargar SVC</button>
+          <button>Insertar CVS</button>
+          <button>Descargar CVS</button>
         </div>
 
 			{/*mapping the yellow row data*/}
@@ -337,11 +688,14 @@ const CrudMentor = () => {
 									<th>{e.Apellidos}</th>
 									<th>{e.Edad}</th>
 									<th>{e.Género}</th>
+									<th>{e.Teléfono}</th>
+									<th>{e.Email}</th>
 									<th>{e.Intereses}</th>
 									<th>{e.Programa}</th>
 									<th>{e.Carrera}</th>
 									<th>{e.Empresa}</th>
 									<th>{e.AsignaciónEst}</th>
+									<th>Estado</th>
 									<th>Acciones</th>
 								</tr>
 							);
@@ -356,19 +710,26 @@ const CrudMentor = () => {
 									<td> {e.Apellidos}</td>
 									<td>{e.Edad}</td>
 									<td>{e.Género}</td>
+									<td>{e.Teléfono}</td>
+									<td>{e.Email}</td>
 									<td>{e.Intereses}</td>
 									<td>{e.Programa}</td>
 									<td>{e.Carrera}</td>
 									<td>{e.Empresa}</td>
 									<td>{e.AsignaciónEst}</td>
+									<td>{e.estado}</td>
 									<td>
 										<div className={styles.containerbutton}>
-											<button id={styles.update}>
+										<button id={styles.delete}  onClick={() => openedClosedModalVer()}>
+												<FontAwesomeIcon icon={faEye}/>
+											</button>
+											<button id={styles.update} onClick={() => openedClosedModalEditar()}>
 												<FontAwesomeIcon icon={faEdit} />
 											</button>{' '}
 											<button id={styles.delete}>
 												<FontAwesomeIcon icon={faTrashAlt} />
 											</button>
+										
 										</div>
 									</td>
 								</tr>
@@ -379,6 +740,14 @@ const CrudMentor = () => {
 			</div>
 			<Modal open={modalinsertar} onClose={openedClosedModalInsertar}>
 				{bodyInsertar}
+			</Modal>
+
+			<Modal open={modaleditar} onClose={openedClosedModalEditar}>
+				{bodyEditar}
+			</Modal>
+
+			<Modal open={modalver} onClose={openedClosedModalVer}>
+				{bodyVer}
 			</Modal>
 		</div>
 	);
