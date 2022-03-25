@@ -100,10 +100,6 @@ padding-top: 2px;
 }
 /* ------------- MEDIA QUERIES --------------- */
 @media (max-width: 300px) {
-  .container-login-main {
-    padding-top: 5%;
-  }
-  
   .button-login {
     margin: 20px auto;
   }
