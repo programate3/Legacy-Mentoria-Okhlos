@@ -39,6 +39,7 @@ import CrudMentors from './views/Administrator/Cruds/CrudMentor/CrudMentor';
 import CrudStudents from './views/Administrator/Cruds/CrudStudents/CrudStudents';
 import CrudSessions from './views/Administrator/Cruds/CrudSessions/CrudSessions';
 import CrudSessionsDetail from './views/Administrator/Cruds/CrudSessionDetail/CrudSessionDetail';
+import MentorAssigned from './views/Student/MentroAssigned/MentorAssigned';
 
 // import WelcomeAdmin from './views/Administrator/PanelAdmin/WelcomeAdmi';
 function App() {
@@ -128,11 +129,16 @@ function App() {
 
 				{/* others */}
 				<Route path="/principal-view" element={<PrincipalView />} />
-				<Route
-					path="/welcome-user"
-					element={interest ? <Thanks /> : <MultipleChoice />}
+
+				<Route path="/welcome-user"
+					element={<MultipleChoice />}
 				/>
+				{/* <Route path="/welcome-user"
+					element={interest ? <Thanks /> : <MultipleChoice />}
+				/> */}
 				<Route path="/thanks-student" element={<Thanks />} />
+				<Route path="/mentor-assigned" element={<MentorAssigned/>}/>
+
 				<Route path="/welcome-student" element={<WelcomeStudent />} />
 				<Route path="/calendar/:id" element={<Calendar />} />
 				<Route path="/form-student/:id" element={<FirstStudentForm />} />

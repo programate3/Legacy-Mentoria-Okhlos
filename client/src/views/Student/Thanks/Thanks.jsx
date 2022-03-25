@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
-import '../Thanks/thanks.css'
-import { useSelector } from 'react-redux'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import studentStyle from './thanksStudent.module.css';
+/* import { useSelector } from 'react-redux' */
+import logo from '../../../assets/Logo/programateAcademyLogo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+/* import axios from 'axios'
+import { useNavigate } from 'react-router-dom' */
 
-const baseUrl = 'https://fathomless-bastion-33135.herokuapp.com'
+/* const baseUrl = 'http://localhost:3001/' */
 
 const Thanks = () => {
 
-  const idStudent = useSelector(state => state.auth.user.id)
+  const check = <FontAwesomeIcon icon={faCheckCircle} className={studentStyle.checkIcon} /> /* IconFormFA */
+  /* const idStudent = useSelector(state => state.auth.user.id)
   const navigate = useNavigate() 
   
   useEffect(() => {
@@ -24,27 +28,28 @@ const Thanks = () => {
         
       })
     }
-  }, [idStudent, navigate])
+  }, [idStudent, navigate]) */
 
 
-    return (
-        <div> 
-            <div className="container">
-              <div className="back">
-                <div className="card">
-                  <div className="box">
-                    <div className="content">
-                      <h3>¡Hemos recibido tus respuestas!</h3>
-                      <p>Te notificaremos por correo cuándo se haya realizado la asignación de tu mentor.</p>
-                      
-                    </div>              
-                  </div>
-                  {/* <h1 className="little">.hola.</h1> */}
-                </div>
-              </div>  
-            </div>
+  return (
+    <section className={studentStyle.containerAll}>
+      <div className={studentStyle.logoContainer}>
+        <img src={logo} alt="Programate Academy" className={studentStyle.logoImg} />
+      </div>
+      <article className={studentStyle.thanksContainer}>
+        <div className={studentStyle.checkContainer}>
+          {check}
+          <h3>¡Hemos recibido tus respuestas!</h3>
         </div>
-    )
+        <div className={studentStyle.notifContainer}>
+          <p>Te notificaremos por correo cuándo se haya realizado la asignación de tu mentor.</p>
+          <button className={studentStyle.btnFinalizar}>Finalizar</button>
+        </div>
+      </article>
+
+      {/* <h1 className="little">.hola.</h1> */}
+    </section>
+  )
 }
 
 export default Thanks
