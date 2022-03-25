@@ -148,19 +148,31 @@ useEffect(async()=>{
 	//------------------------------------------ alert--------------------------------------------------
 	const mostrarAlerta = () => {
 		Swal.fire({
-			title: 'Are you sure?',
-			text: "You won't be able to revert this!",
-			icon: 'warning',
+			showCloseButton: true,
+			closeButtonText: 'X',
+			title: '¿Desea guardar los cambios?',
+			icon: 'question',
 			showCancelButton: true,
-			confirmButtonColor: 'black',
-			cancelButtonColor: 'pink',
-			confirmButtonText: 'Yes, delete it!',
-			zIndex: '2147483647 '
+			cancelButtonText: 'No',
+			confirmButtonColor: '#ffcc02',
+			cancelButtonColor: '#000000',
+			confirmButtonText: 'Si'
+			
 		  }).then((result) => {
 			if (result.isConfirmed) {
-			  Swal.fire('Deleted!',	'Your file has been deleted.','success')
-			  openedClosedModalEditar()
+			  Swal.fire({
+				showCloseButton: true,
+				title: '¡Listo!',
+				text: "Cambios guardados con éxito",
+				icon: 'success',
+				showConfirmButton: true,
+				confirmButtonColor: '#ffcc02',
+				confirmButtonText: 'Ok',
+				
+
+			  })
 			}
+		
 			
 		  })
 };
@@ -267,8 +279,8 @@ useEffect(async()=>{
 			</select>
 			<br />
 			<div align="center" >
-				<button className={styles.button} onClick={() => mostrarAlerta()}>
-					Guardar cambios
+				<button className={styles.button} onClick={() => mostrarAlerta() & openedClosedModalEditar()}>
+					Guardar cambios 
 				</button>
 				<button
 					className={styles.button}

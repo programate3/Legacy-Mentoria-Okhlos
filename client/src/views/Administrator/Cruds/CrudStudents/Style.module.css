@@ -130,6 +130,10 @@ button {
   color: #000000;
   border-radius: 10px;
 }
+.modal select{
+	margin-top:10px;
+  
+}
 
 .modal h3 {
   color: #000000;
