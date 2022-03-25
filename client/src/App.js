@@ -24,7 +24,7 @@ import Footer from './components/Footer/Footer';
 import FirstStudentForm from './views/Student/Form/FirstStudentForm';
 import FirstStudentInform from './views/Student/Inform/FirstStudentInform';
 import MultipleChoice from './views/Student/MultipleChoice/MultipleChoice';
-
+import WelcomeCard from './components/welcomeCard/WelcomeCard';
 import PrincipalView from './views/Principal/PrincipalView';
 import MatchForm from './views/Administrator/Match/MatchForm';
 import AsignedSessions from './views/Mentor/AsignedSessions/AsignedSessions';
@@ -142,6 +142,12 @@ function App() {
 				<Route path="/welcome-student" element={<WelcomeStudent />} />
 				<Route path="/calendar/:id" element={<Calendar />} />
 				<Route path="/form-student/:id" element={<FirstStudentForm />} />
+
+				
+				<Route path="/WelcomeCard" element={<WelcomeCard />} />
+
+
+
 				{/* <Route path="/thanks-student" element={<Thanks/>}/> */}
 				<Route path="/inform-student/:id" element={<FirstStudentInform />} />
 				<Route path="/student-sessions" element={<StudentSession />} />
