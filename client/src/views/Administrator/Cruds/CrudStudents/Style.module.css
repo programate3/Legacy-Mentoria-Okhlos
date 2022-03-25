@@ -42,13 +42,13 @@
 }
 
 h1 {
-	color: #000000;
-	background-color: #f1f1f1;
-	width: 99%;
-	padding: 20px 0;
-	text-shadow: 1px 1px 2px #000000;
-	box-shadow: 2px 2px 2px #a0a0a0;
-	margin: 10px;
+  color: #000000;
+  background-color: #f1f1f1;
+  width: 99%;
+  padding: 20px 0;
+  text-shadow: 1px 1px 2px #000000;
+  box-shadow: 2px 2px 2px #a0a0a0;
+  margin: 10px;
   text-align: center;
 }
 
@@ -67,7 +67,6 @@ h1 {
   width: 100%;
   display: flex;
   justify-content: left;
- 
 }
 
 .table td {
@@ -130,9 +129,8 @@ button {
   color: #000000;
   border-radius: 10px;
 }
-.modal select{
-	margin-top:10px;
-  
+.modal select {
+  margin-top: 10px;
 }
 
 .modal h3 {
@@ -165,34 +163,31 @@ button {
   justify-content: center;
 }
 
-.header{
+.header {
   display: flex;
   justify-content: space-around;
   width: 98%;
   margin: 20px auto;
   align-items: center;
- 
 }
 
 input {
-	min-width: 25vw;
-	height: 6vh;
-	border: #010101 solid 0.12rem;
-	border-radius: 1rem;
-	padding: 2px 15px;
+  min-width: 25vw;
+  height: 6vh;
+  border: #010101 solid 0.12rem;
+  border-radius: 1rem;
+  padding: 2px 15px;
 }
 
 @media screen and (max-width: 800px) {
-	.header{
-		display: flex;
-		flex-direction: column;
-		width: 98%;
-		margin: auto;
-		align-items: center;
-	   
-	  }
-	}
-
+  .header {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    margin: auto;
+    align-items: center;
+  }
+}
 
 @media screen and (max-width: 600px) {
   .modal {
@@ -207,6 +202,4 @@ input {
   .container {
     padding-top: 15%;
   }
-
- 
 }

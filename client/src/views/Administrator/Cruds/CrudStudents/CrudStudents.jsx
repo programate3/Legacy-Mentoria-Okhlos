@@ -5,7 +5,7 @@ import { faEdit, faTrashAlt, faEye } from "@fortawesome/free-solid-svg-icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { Modal, TextField } from "@material-ui/core";
 import Axios from "axios";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const Articles = [
   {
@@ -21,36 +21,74 @@ const Articles = [
   },
 ];
 
+//Alert delete
+
 const Alertdelete = () => {
   Swal.fire({
     showCloseButton: true,
-    closeButtonText: 'X',
-    title: '¿Está seguro que quiere eliminar este registro?',
+    closeButtonText: "X",
+    title: "¿Está seguro que quiere eliminar este registro?",
     text: "Si hace esto, no podrá revertirlo",
-    icon: 'warning',
+    icon: "warning",
     showCancelButton: true,
-    cancelButtonText: 'No',
-    confirmButtonColor: '#ffcc02',
-    cancelButtonColor: '#000000',
-    confirmButtonText: 'Si'
+    cancelButtonText: "No",
+    confirmButtonColor: "#ffcc02",
+    cancelButtonColor: "#000000",
+    confirmButtonText: "Si",
   }).then((result) => {
     if (result.isConfirmed) {
- 
-      Swal.fire(
-        {
-          showCloseButton: true,
-          title: 'Eliminado',
-          text: "El registro ha sido eliminado con éxito",
-          icon: 'success',
-          showConfirmButton: true,
-          confirmButtonColor: '#ffcc02',
-          confirmButtonText: 'Ok'
-          
-        }
-      )
+      Swal.fire({
+        showCloseButton: true,
+        title: "Eliminado",
+        text: "El registro ha sido eliminado con éxito",
+        icon: "success",
+        showConfirmButton: true,
+        confirmButtonColor: "#ffcc02",
+        confirmButtonText: "Ok",
+      });
     }
+  });
+};
+
+//Alert editar
+const Alertedit = () => {
+  Swal.fire({
+    showCloseButton: true,
+    closeButtonText: "X",
+    title: "¿Desea guardar los cambios?",
+    icon: "question",
+    showCancelButton: true,
+    cancelButtonText: "No",
+    confirmButtonColor: "#ffcc02",
+    cancelButtonColor: "#000000",
+    confirmButtonText: "Si",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        showCloseButton: true,
+        title: "¡Listo!",
+        text: "Cambios guardados con éxito",
+        icon: "success",
+        showConfirmButton: true,
+        confirmButtonColor: "#ffcc02",
+        confirmButtonText: "Ok",
+      });
+    }
+  });
+};
+
+//Alert create
+
+const Alertcreate = () => {
+  Swal.fire({
+    showCloseButton: true,
+    closeButtonText: "X",
+    title: "Registro creado con éxito",
+    icon: "success",
+    confirmButtonColor: "#ffcc02",
+    confirmButtonText: "Ok",
   })
-}
+};
 
 //Modal styles
 const useStyles = makeStyles((theme) => ({
@@ -282,7 +320,6 @@ const CrudStudents = () => {
             <option value="Masculino">Masculino</option>
             <option value="Otro">Otro</option>
           </select>
-    
         </div>
         <div className="form-group col-md-6">
           <select
@@ -301,7 +338,6 @@ const CrudStudents = () => {
               Administración de Empresas
             </option>
           </select>
-       
         </div>
       </div>
       <div className="row ">
@@ -348,10 +384,9 @@ const CrudStudents = () => {
         </div>
       </div>
 
-  
       <br />
       <div align="center">
-        <button className={Styles.Button} onClick={petitionPost}>
+        <button className={Styles.Button} onClick={()=>Alertcreate() &  openedClosedModalInsertar() } /* onClick={petitionPost} */>
           Insertar
         </button>
         <button
@@ -454,7 +489,6 @@ const CrudStudents = () => {
             <option value="Masculino">Masculino</option>
             <option value="Otro">Otro</option>
           </select>
-       
         </div>
         <div className="form-group col-md-6">
           <select
@@ -521,7 +555,10 @@ const CrudStudents = () => {
 
       <br />
       <div align="center">
-        <button className={styles.button} onClick={petitionPost}>
+        <button
+          className={styles.button}
+          onClick={() => Alertedit() & openedClosedModalEditar()}
+        >
           Guardar Cambios
         </button>
 
@@ -625,7 +662,6 @@ const CrudStudents = () => {
             <option value="Masculino">Masculino</option>
             <option value="Otro">Otro</option>
           </select>
-      
         </div>
         <div className="form-group col-md-6">
           <select
@@ -698,8 +734,6 @@ const CrudStudents = () => {
       </div>
     </div>
   );
-
- 
 
   return (
     <>
@@ -774,7 +808,10 @@ const CrudStudents = () => {
                             onClick={() => openedClosedModalEditar()}
                           />
                         </button>
-                        <button id={styles.delete} onClick={()=> Alertdelete ()}>
+                        <button
+                          id={styles.delete}
+                          onClick={() => Alertdelete()}
+                        >
                           <FontAwesomeIcon icon={faTrashAlt} />
                         </button>
                       </div>
