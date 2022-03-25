@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './CrudSessions.module.css';
 import SearchContainer from '../../../../components/SearchContainer/SearchContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faEdit} from '@fortawesome/free-solid-svg-icons';
+import {faEdit, faUserPlus} from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, TextField } from '@material-ui/core';
 import axios from 'axios';
@@ -13,7 +13,8 @@ import zIndex from '@material-ui/core/styles/zIndex';
 
 const Articles=[{
   Titulo:"Título" ,
-  RangodeFecha:"Rango de Fecha",
+  Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalización",
   Descripcion:"Descripción",
   Estado:"Estado",
   
@@ -21,31 +22,36 @@ const Articles=[{
 /* toca conectar esto con la base de datos */
 const Database=[{
 	Titulo:"Titulo",
-	RangodeFecha:"Rango de Fecha",
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
 	Descripcion:"Descripcion",
 	Estado:"Estado",
 },
 {
 	Titulo:"Titulo" ,
-	RangodeFecha:"Rango de Fecha",
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
 	Descripcion:"Descripcion",
 	Estado:"Estado",
 },
 {
 	Titulo:"Titulo" ,
-	RangodeFecha:"Rango de 888Fecha",
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
 	Descripcion:"Descripcion",
 	Estado:"Estado",
 },
 {
 	Titulo:"Titulo" ,
-	RangodeFecha:"Rango de Fecha",
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
 	Descripcion:"Descripcion",
 	Estado:"Estado",
 },
 {
 	Titulo:"Titulo" ,
-	RangodeFecha:"Rango de Fecha",
+	Fechadeinicio:"Fecha de inicio",
+  Fechadefinalizacion:"Fecha de finalizacion",
 	Descripcion:"Descripcion",
 	Estado:"Estado",
 }
@@ -145,7 +151,38 @@ useEffect(async()=>{
 		setmodaleditar(!modaleditar);
 	};
 
-	//------------------------------------------ alert--------------------------------------------------
+	//---------------------------------------alert from add--------------------------------------------------
+	const alertAdd= () => {
+		Swal.fire({
+			showCloseButton: true,
+			closeButtonText: 'X',
+			title: '¿Desea insertar los datos?',
+			icon: 'question',
+			showCancelButton: true,
+			cancelButtonText: 'No',
+			confirmButtonColor: '#ffcc02',
+			cancelButtonColor: '#000000',
+			confirmButtonText: 'Si'
+			
+		  }).then((result) => {
+			if (result.isConfirmed) {
+			  Swal.fire({
+				showCloseButton: true,
+				title: '¡Listo!',
+				text: "Añadido con éxito",
+				icon: 'success',
+				showConfirmButton: true,
+				confirmButtonColor: '#ffcc02',
+				confirmButtonText: 'Ok',
+				
+
+			  })
+			}
+		
+			
+		  })
+};
+//-----------------------------------------------alert from edit-------------------------------------------
 	const mostrarAlerta = () => {
 		Swal.fire({
 			showCloseButton: true,
@@ -192,11 +229,20 @@ useEffect(async()=>{
 			<br />
 			<TextField
 			    type="date"
-				name="Rango de fecha"
+				name="Fecha de inicio"
 				className={Styles.inputMaterial}
-				label="Rango de fecha"
+				label="Fecha de inicio"
 				onChange={InsertData}
-				value={SavedData && SavedData.Rangodefecha}
+				value={SavedData && SavedData.Fechadeinicio}
+			/>
+			<br />
+			<TextField
+			    type="date"
+				name="Fecha de finalizacion"
+				className={Styles.inputMaterial}
+				label="Fecha de finalización"
+				onChange={InsertData}
+				value={SavedData && SavedData.Fechadefinalizacion}
 			/>
 			<br />
 			<TextField
@@ -223,7 +269,7 @@ useEffect(async()=>{
 			</select>
 			<br />
 			<div align="center" >
-				<button className={styles.button} /* onClick={()=>petitionPost()}*/>
+				<button className={styles.button} onClick={() => alertAdd() & openedClosedModalInsertar()}/* onClick={()=>petitionPost()}*/>
 					Insertar
 				</button>
 				<button
@@ -248,11 +294,20 @@ useEffect(async()=>{
 			<br />
 			<TextField
 			     type="date"
-				name="Rango de fecha"
+				name="Fecha de inicio"
 				className={Styles.inputMaterial}
-				label=""
+				label="Fecha de inicio"
 				onChange={InsertData}
-				value={SavedData && SavedData.RangodeFecha}
+				value={SavedData && SavedData.Fechadeinicio}
+			/>
+			<br />
+			<TextField
+			    type="date"
+				name="Fecha de finalizacion"
+				className={Styles.inputMaterial}
+				label="Fecha de finalización"
+				onChange={InsertData}
+				value={SavedData && SavedData.Fechadefinalizacion}
 			/>
 			<br />
 			<TextField
@@ -308,7 +363,8 @@ useEffect(async()=>{
 						<tr>
 							
 							<th>{e.Titulo}</th>
-							<th>{e.RangodeFecha}</th>
+							<th>{e.Fechadeinicio}</th>
+							<th>{e.Fechadefinalizacion}</th>
 							<th>{e.Descripcion}</th>
 							<th>{e.Estado}</th>
 							<th>Acciones</th>
@@ -323,7 +379,8 @@ useEffect(async()=>{
 					return (
 						<tr>
 							<td>{e.Titulo}</td>
-							<td >{e.RangodeFecha}</td>
+							<td >{e.Fechadeinicio}</td>
+							<td >{e.Fechadefinalizacion}</td>
 							<td > {e.Descripcion}</td>
 							<td >{e.Estado}</td>
 
