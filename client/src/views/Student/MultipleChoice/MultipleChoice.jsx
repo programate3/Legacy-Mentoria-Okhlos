@@ -42,7 +42,7 @@ const MultipleChoice = () => {
 
   // console.log(uniqueInterest);
 
-  //function to transform API data from string to array
+ 
   function debugDat (data) {
     
     data.forEach(interest => {

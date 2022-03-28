@@ -16,7 +16,7 @@ const Thanks = () => {
       axios.get(`${baseUrl}/api/one/student/${idStudent}`)
       .then(res => {
         const assignedMentor = res.data[0].assignedMentor;
-        // console.log(assignedMentor)
+
         if(assignedMentor.toString() !== "Not assigned"){
           // console.log("entra al if")
           navigate('/student-sessions')

@@ -4,6 +4,7 @@ import styles from './welcomeCard.module.css'
 const WelcomeCard = () => {
     return (
         <div>  
+        <div className={styles.colorBox}></div>
           <div className={styles.containerOne}>
             <div className={styles.progressContainer}>
                 <div className={styles.progress}> 
