@@ -28,6 +28,8 @@ import Calendar from './components/Calendar/calendar';
 import AssigmentSessionBoard from './views/Student/SessionsBoard/AssignmentSessionBoard';
 import WaitMessage from './components/Calendar/WaitMessage';
 import WelcomeMentor from './views/Mentor/Welcome';
+import StudentAssigned from './views/Mentor/Asignedstudent/StudentAssigned';
+import Home from './views/Mentor/Home'
 // Administrator imports of CRUDS //
 import CrudMentors from './views/Administrator/Cruds/CrudMentor/CrudMentor'
 import CrudStudents from './views/Administrator/Cruds/CrudStudents/CrudStudents';
@@ -141,6 +143,12 @@ function App() {
          <Route path="/ListMentorstudent" element={<ListMentorstudent/>}/>
          <Route path="/AsignedSessions" element={<AsignedSessions/>}/>
          <Route path="/welcome-mentor" element={<WelcomeMentor/>}/>
+
+         {/* mentor home */}
+         <Route path="/home" element={<Home />}/>
+         <Route path="/studentAssigned" element={<StudentAssigned />}/>
+
+
          <Route path="/FormMentor" element={<FormMentor/>}/>
          <Route path="/FinalMessage" element={<FinalMessage/>}/>
          <Route path="/WaitMessage" element={<WaitMessage/>}/>

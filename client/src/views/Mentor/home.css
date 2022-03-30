@@ -1,0 +1,109 @@
+
+
+.home{
+    background-color: rgb(253, 253, 253);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5rem;
+    
+}
+/* .header{
+height: 100vh;
+width: 100%;
+object-fit: fill ;
+box-shadow: inset 0 0 0 1000px rgb(110, 11, 11);
+display: flex;
+
+} */
+/* .header img{
+    object-fit:cover;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 50px;
+    
+} */
+
+
+
+/* .slide {
+    position: relative;
+    width: 100%;
+} */
+
+
+.session-card{
+    width: auto;
+    background-color: #ffffff;
+
+}
+.container{
+    height: 60vh;
+    flex-wrap: nowrap;
+    
+}
+.card{
+    background-color: #FFCC02;
+    display: flex;
+    padding: 90px;
+    margin: 10px 0px 10px;
+    border-radius: 15px;
+
+}
+
+.nueva {
+    background-color: #92C149;
+    
+
+}
+
+.barnav {
+    font-size: 36px;
+    text-align: center;
+    padding: 30px;
+    margin-top: 1rem;
+    font-weight: 15px;
+ 
+}
+
+.text-home{
+    font-size: 20px;
+    text-align: center;
+}
+article .button3{
+    top: 90%;
+    left:80%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #fafafa;
+    color: #000000;
+    font-size: 16px;
+    padding: 9px 19px;
+    border: 4px solid #fafafa;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 250px;
+}
+.letter1{
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 0 7.4rem;
+}
+
+.logo {
+    width: 100%;
+    max-width: 200px;
+    margin: auto;
+}
+
+.text{
+
+    padding: 50px;
+    margin: -10px 0px -25px;
+    background-color: #e2d7d7;
+    color: #000000;
+}
+
+

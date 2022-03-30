@@ -1,32 +1,47 @@
 /* ------------- LOGIN--------------- */
-.container-login-main {
+
+.container-login-main{
   width: 100%;
+  height: 100vh;
+  padding-top: 15vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+
+.container-login-page {
+  height: 85vh;
+  width: 55%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /* border-radius: 8px; */
+  padding: 70px;
+  background-color: #FFCC02;
+
+ 
+}
+
+.logoContainer{
+  width: 50%; 
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f1f1f1;
-  margin-top: 85px;  
-}
-.container-login-page {
-  height: 90vh;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  padding: 40px;
-  background-color: #fff;
 
-  
 }
+.loginphoto{
+  width: 70%;
+}
+
+
 .logoLogin {
-  width: 80%;
+  width: 40%;
   display: flex;
   margin: auto;
   margin-bottom: 20px;
 }
 .loginTitle{
-    font-size: 26px;
+  font-size: 36px;
   display:flex;
   justify-content: center;
   text-align: center;
@@ -53,8 +68,8 @@ padding-top: 2px;
 .button-login {
   
   font-weight: bold;
-  background-color: #FFCC02;
-  margin: 10px 55px;
+  background-color: #ffffff;
+  margin: 1rem auto;
   padding: 8px;
   width: 100%;
   display: block;

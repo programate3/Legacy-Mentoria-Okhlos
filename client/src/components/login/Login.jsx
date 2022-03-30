@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import './login.css'
 import Input from '../Input/Input'
 import logo from '../assets/images/academy.png'
+import loginphoto from '../../components/assets/images/academy.png'
 
 const Login = () => {
   //Inicializo hooks
@@ -56,44 +57,48 @@ const Login = () => {
   }
 
   return (
-    <div className='container-login-main'>
-      <div className='container-login-page'>
-      <img className='logoLogin' src={logo} alt='logo-programate' />
-      <h2 className="loginTitle">Ingresa a Okhlos</h2>
-      {err && showErrMsg(err)}
-      {success && showSuccessMsg(success)}
+    <div className="container-login-main">
 
-        <form className='form' onSubmit={handleSubmit}>
-          <div className='container-login-form-content'>
+      <div className="logoContainer">
+        <img className="loginphoto" src={loginphoto} alt="logo"  />
+      </div>
+     
+      <div className="container-login-page">
+
+        <img className="logoLogin" src={logo} alt="logo-programate" />
+        <h2 className="loginTitle">Ingresa a Okhlos</h2>
+        {err && showErrMsg(err)}
+        {success && showSuccessMsg(success)}
+
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="container-login-form-content">
             {/* <label htmlFor='email'>Email Address</label> */}
             <Input
-              label='Correo'
-              placeholder='ejemplo@ejemplo.com'
-              name='email'
-              type='email' required
+              label="Correo"
+              placeholder="ejemplo@ejemplo.com"
+              name="email"
+              type="email"
+              required
               value={email}
               onChange={handleChangeInput}
-              
             />
 
             <Input
-              
-              label='Contraseña'
-              placeholder='********'
-              type='password'
-              name='password'
+              label="Contraseña"
+              type="password"
+              name="password"
               value={password}
               onChange={handleChangeInput}
             />
           </div>
 
-          <button className='button-login' type='submit'>
-            Ingresar 
+          <button className="button-login" type="submit">
+            Ingresar
           </button>
         </form>
       </div>
     </div>
-  )
+  );
 }
 
 export default Login

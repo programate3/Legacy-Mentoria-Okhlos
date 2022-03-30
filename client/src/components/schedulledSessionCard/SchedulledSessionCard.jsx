@@ -29,32 +29,48 @@ const SchedulledSessionCard = ({ numSession, startDate, endDate, id }) => {
 
   return (
     <>
-      <div className={styles.sessiona}>
-        <h1>Sesiones</h1>
-      </div>
       <div className={styles.whitebox}>
-        <h3 className={styles.title}>
-          {`Sesión ${numSession} ha sido habilitada`}
-        </h3>
-        <h4 className={styles.subtitles}></h4>
-        <h4 className={styles.subtitles}>Fecha inicial</h4>
-        <p className={styles.info}>{startDate}</p>
-        <h4 className={styles.subtitles}>Fecha final</h4>
-        <p className={styles.info}>{endDate}</p>
+        <div className={styles.sessionHab}>
+          <h3 className={styles.title}>
+            {`Sesión ${numSession} - Habilitada`}
+          </h3>
+        </div>
+        <div className={styles.buttonsContainer}>
 
-        {sessionFilledOut ? (
-          <Link to={"/student-assignment-sessions"} className={styles.btn}>
-            Ir a la sesión agendada
-          </Link>
-        ) : (
-          <Link to={`/calendar/${id}`} className={styles.btn}>
-            Agendar sesión
-          </Link>
-        )}
+        <div >
+          <h4 className={styles.subtitles}>
+          Rango de fechas para agendar tu sesión de mentoría
+          </h4>
         <p className={styles.note}>
           *Al dar click en el botón podrás escoger la fecha de tu sesión de
           mentoria
         </p>
+        </div>
+        <div >
+          <h4 className={styles.subtitles}>Fecha inicial</h4>
+          <p className={styles.info}>{startDate}</p>
+          <h4 className={styles.subtitles}>Fecha final</h4>
+          <p className={styles.info}>{endDate}</p>
+        </div>
+        <div >
+          {/* {sessionFilledOut ? (
+          <Link to={"/student-assignment-sessions"} className={styles.btn}>
+            Ir a la sesión agendada
+          </Link>
+        ) : ( */}
+          <Link to={`/calendar/${id}`} className={styles.btn}>
+            Agendar sesión
+          </Link>
+          <Link to={`/`} className={styles.btn}>
+            Ver informe
+          </Link>
+          <Link to={`/`} className={styles.btn}>
+            Ver formulario
+          </Link>
+          {/* )} */}
+        </div>
+        </div>
+        
       </div>
     </>
   );
