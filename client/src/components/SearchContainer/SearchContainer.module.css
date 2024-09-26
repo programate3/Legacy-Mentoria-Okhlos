@@ -1,39 +1,50 @@
 .Container{
     width: 100vw;
-    height: 70vh;
-    margin: 0em 0rem 1rem 0rem;
+    height: 270px;
+    margin: 0em 0rem 0rem 0rem;
+    padding:0%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content:space-evenly;
-    
-    
+}
+.box{
+    width: 100vw;
+    height: 107px;
+    background-color: rgb(223, 223, 223);
+    margin-top: 0;
     
 }
 .Container h1{
+    margin-top: 40px;
    text-align: center;
-    color: #92C149;
+    color: #000000;
+    text-shadow: 3px 3px 2px rgb(124, 124, 124);
     font-family: Gilroy-ExtraBold;
     font-size:1.5rem;
 }
 
 .Container input{
-    width:65vw;
-    height:5vh;
-    border: #010101 solid 0.12rem;
+    width: 1000px;
+    /* height:20px; */
+    /* border: #010101 solid 0.12rem; */
     border-radius: 1rem;
+    background-color: rgb(201, 201, 201);
 }
 .Container button {
-    width:50%;
+    width:60%;
+    height: 15%;
     background-color: #FFCC02;
     color: black;
     padding: 0.5rem;
     border-radius: 0.4rem;
-    
+    cursor: pointer;
+    font-size: 17px;
 }
 
 .Container button:hover{
-    background-color:#92C149 ;
+    background-color:#000000; 
+    color: #FFCC02;
 }
 @media (min-width: 350px ) {
     
